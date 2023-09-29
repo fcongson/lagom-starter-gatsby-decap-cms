@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import "../../style/custom-style.sass";
 import useSiteMetadata from "../SiteMetadata";
 import { Footer } from "./Footer";
-import { Navbar } from "./Navbar";
+import { Nav } from "./Nav";
 
 export const Layout = ({ children }) => {
   const { title, description } = useSiteMetadata();
@@ -66,7 +66,7 @@ export const Layout = ({ children }) => {
           content={`${withPrefix("/")}img/og-image.jpg`}
         />
       </Helmet>
-      <Navbar />
+      <Nav />
       <main>{children}</main>
       <Footer />
     </ThemeProvider>
