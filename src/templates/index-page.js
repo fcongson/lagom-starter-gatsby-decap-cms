@@ -1,11 +1,13 @@
 import {
+  Container,
   Hero,
   LinkButton,
   PageHeader,
+  Section,
   SectionHeader,
 } from "@fcongson/lagom-ui";
 import { Link, graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import PropTypes from "prop-types";
 import React from "react";
 import BlogRoll from "../components/BlogRoll";
@@ -22,12 +24,8 @@ export const IndexPageTemplate = ({
   description,
   intro,
 }) => {
-  const heroImage = getImage(image) || image;
-
-  console.log({ image, heroImage });
-
   return (
-    <div>
+    <>
       <Hero
         image={
           <GatsbyImage
@@ -39,54 +37,36 @@ export const IndexPageTemplate = ({
         <PageHeader>{title}</PageHeader>
         <SectionHeader>{subheading}</SectionHeader>
       </Hero>
-      <section className="section section--gradient">
-        <div className="container">
-          <div className="section">
-            <div className="columns">
-              <div className="column is-10 is-offset-1">
-                <div className="content">
-                  <div className="content">
-                    <div className="tile">
-                      <h1 className="title">{mainpitch.title}</h1>
-                    </div>
-                    <div className="tile">
-                      <h3 className="subtitle">{mainpitch.description}</h3>
-                    </div>
-                  </div>
-                  <div className="columns">
-                    <div className="column is-12">
-                      <h3 className="has-text-weight-semibold is-size-2">
-                        {heading}
-                      </h3>
-                      <p>{description}</p>
-                    </div>
-                  </div>
-                  <Features gridItems={intro.blurbs} />
-                  <div className="columns">
-                    <div className="column is-12 has-text-centered">
-                      <LinkButton to="/products" Component={Link}>
-                        See all products
-                      </LinkButton>
-                    </div>
-                  </div>
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      Latest stories
-                    </h3>
-                    <BlogRoll />
-                    <div className="column is-12 has-text-centered">
-                      <LinkButton to="/blog" Component={Link}>
-                        Read more
-                      </LinkButton>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+      <Section>
+        <Container>
+          <h2 className="title">{mainpitch.title}</h2>
+          <h3 className="subtitle">{mainpitch.description}</h3>
+        </Container>
+      </Section>
+      <Section>
+        <Container>
+          <h3 className="has-text-weight-semibold is-size-2">{heading}</h3>
+          <p>{description}</p>
+        </Container>
+      </Section>
+      <Section>
+        <Container>
+          <Features gridItems={intro.blurbs} />
+          <LinkButton to="/products" Component={Link}>
+            See all products
+          </LinkButton>
+        </Container>
+      </Section>
+      <Section>
+        <Container>
+          <h3 className="has-text-weight-semibold is-size-2">Latest stories</h3>
+          <BlogRoll />
+          <LinkButton to="/blog" Component={Link}>
+            Read more
+          </LinkButton>
+        </Container>
+      </Section>
+    </>
   );
 };
 
