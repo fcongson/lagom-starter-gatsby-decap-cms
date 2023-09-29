@@ -1,13 +1,13 @@
 import { Link } from "gatsby";
 import * as React from "react";
 
-import logo from "../../static/images/logo.svg";
-import facebook from "../../static/images/facebook.svg";
-import instagram from "../../static/images/instagram.svg";
-import twitter from "../../static/images/twitter.svg";
-import vimeo from "../../static/images/vimeo.svg";
+import facebook from "../../../static/images/facebook.svg";
+import instagram from "../../../static/images/instagram.svg";
+import logo from "../../../static/images/logo.svg";
+import twitter from "../../../static/images/twitter.svg";
+import vimeo from "../../../static/images/vimeo.svg";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="footer has-background-black has-text-white-ter">
       <div className="content has-text-centered">
@@ -105,5 +105,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

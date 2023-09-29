@@ -9,7 +9,7 @@ import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import PropTypes from "prop-types";
 import React from "react";
-import Layout from "../components/Layout";
+import { Layout } from "../components/layout";
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 import Pricing from "../components/Pricing";
 import Testimonials from "../components/Testimonials";

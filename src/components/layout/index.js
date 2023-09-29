@@ -2,12 +2,12 @@ import { ThemeProvider } from "@fcongson/lagom-ui";
 import { withPrefix } from "gatsby";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import "../style/custom-style.sass";
-import useSiteMetadata from "./SiteMetadata";
+import "../../style/custom-style.sass";
+import useSiteMetadata from "../SiteMetadata";
+import { Footer } from "./Footer";
+import { Navbar } from "./Navbar";
 
-const TemplateWrapper = ({ children }) => {
+export const Layout = ({ children }) => {
   const { title, description } = useSiteMetadata();
 
   const [prefersDark, setPrefersDark] = useState(false);
@@ -72,5 +72,3 @@ const TemplateWrapper = ({ children }) => {
     </ThemeProvider>
   );
 };
-
-export default TemplateWrapper;

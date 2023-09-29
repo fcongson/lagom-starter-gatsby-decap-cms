@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Helmet } from "react-helmet";
 import Content, { HTMLContent } from "../components/Content";
-import Layout from "../components/Layout";
+import { Layout } from "../components/layout";
 
 // eslint-disable-next-line
 export const BlogPostTemplate = ({
