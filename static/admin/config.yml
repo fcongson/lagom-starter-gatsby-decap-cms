@@ -9,15 +9,15 @@ backend:
     deleteMedia: "[skip ci] Delete “{{path}}”"
 
 local_backend: true
-media_folder: static/img
-public_folder: /img
+media_folder: static/images
+public_folder: /images
 
 collections:
   - name: "blog"
     label: "Blog"
-    folder: "src/pages/blog"
+    folder: "content/posts"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
       - {
           label: "Template Key",
@@ -36,15 +36,15 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "src/pages/index.md"
-        label: "Landing Page"
-        name: "index"
+      - file: "content/pages/index.md"
+        label: "Home"
+        name: "home"
         fields:
           - {
               label: "Template Key",
               name: "templateKey",
               widget: "hidden",
-              default: "index-page",
+              default: "home-page",
             }
           - { label: Title, name: title, widget: string }
           - { label: Image, name: image, widget: image }
@@ -121,7 +121,7 @@ collections:
                   },
                 ],
             }
-      - file: "src/pages/about/index.md"
+      - file: "content/pages/about.md"
         label: "About"
         name: "about"
         fields:
@@ -133,15 +133,15 @@ collections:
             }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
-      - file: "src/pages/products/index.md"
-        label: "Products Page"
+      - file: "content/pages/products.md"
+        label: "Products"
         name: "products"
         fields:
           - {
               label: "Template Key",
               name: "templateKey",
               widget: "hidden",
-              default: "product-page",
+              default: "products-page",
             }
           - { label: Title, name: title, widget: string }
           - { label: Image, name: image, widget: image }

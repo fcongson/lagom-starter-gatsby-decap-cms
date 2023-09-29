@@ -18,22 +18,29 @@ module.exports = {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/static/img`,
+        path: `${__dirname}/static/images`,
         name: "uploads",
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/pages`,
+        path: `${__dirname}/static/images`,
+        name: "images",
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/content/pages`,
         name: "pages",
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/img`,
-        name: "images",
+        path: `${__dirname}/content/posts`,
+        name: "posts",
       },
     },
     `gatsby-plugin-image`,
@@ -72,7 +79,7 @@ module.exports = {
       resolve: "gatsby-plugin-purgecss", // purges all unused/unreferenced css rules
       options: {
         develop: true, // Activates purging in npm run develop
-        purgeOnly: ['/bulma-style.sass'], // applies purging only on the bulma css file
+        purgeOnly: ["/bulma-style.sass"], // applies purging only on the bulma css file
         printRejected: true,
       },
     }, // must be after other CSS plugins
