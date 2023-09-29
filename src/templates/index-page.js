@@ -1,12 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
+import {
+  Hero,
+  LinkButton,
+  PageHeader,
+  SectionHeader,
+} from "@fcongson/lagom-ui";
 import { Link, graphql } from "gatsby";
-import { getImage } from "gatsby-plugin-image";
-
-import Layout from "../components/Layout";
-import Features from "../components/Features";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import PropTypes from "prop-types";
+import React from "react";
 import BlogRoll from "../components/BlogRoll";
-import FullWidthImage from "../components/FullWidthImage";
+import Features from "../components/Features";
+import Layout from "../components/Layout";
 
 // eslint-disable-next-line
 export const IndexPageTemplate = ({
@@ -20,9 +24,21 @@ export const IndexPageTemplate = ({
 }) => {
   const heroImage = getImage(image) || image;
 
+  console.log({ image, heroImage });
+
   return (
     <div>
-      <FullWidthImage img={heroImage} title={title} subheading={subheading} />
+      <Hero
+        image={
+          <GatsbyImage
+            image={image?.childImageSharp?.gatsbyImageData}
+            style={{ height: "100%" }}
+          />
+        }
+      >
+        <PageHeader>{title}</PageHeader>
+        <SectionHeader>{subheading}</SectionHeader>
+      </Hero>
       <section className="section section--gradient">
         <div className="container">
           <div className="section">
@@ -48,9 +64,9 @@ export const IndexPageTemplate = ({
                   <Features gridItems={intro.blurbs} />
                   <div className="columns">
                     <div className="column is-12 has-text-centered">
-                      <Link className="btn" to="/products">
+                      <LinkButton to="/products" Component={Link}>
                         See all products
-                      </Link>
+                      </LinkButton>
                     </div>
                   </div>
                   <div className="column is-12">
@@ -59,9 +75,9 @@ export const IndexPageTemplate = ({
                     </h3>
                     <BlogRoll />
                     <div className="column is-12 has-text-centered">
-                      <Link className="btn" to="/blog">
+                      <LinkButton to="/blog" Component={Link}>
                         Read more
-                      </Link>
+                      </LinkButton>
                     </div>
                   </div>
                 </div>

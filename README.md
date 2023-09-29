@@ -8,6 +8,10 @@ Decap CMS can run in any frontend web environment, but the quickest way to try i
 
 After clicking that button, you’ll authenticate with GitHub and choose a repository name. Netlify will then automatically create a repository in your GitHub account with a copy of the files from the template. Next, it will build and deploy the new site on Netlify, bringing you to the site dashboard when the build is complete. Next, you’ll need to set up Netlify’s Identity service to authorize users to log in to the CMS.
 
+[Authenticate users with Netlify Identity](https://docs.netlify.com/visitor-access/identity/)
+
+[Git Gateway](https://docs.netlify.com/visitor-access/git-gateway/)
+
 ### Access Locally
 
 Pulldown a local copy of the Github repository Netlify created for you, with the name you specified in the previous step
