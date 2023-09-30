@@ -5,7 +5,7 @@ import { ThemeProvider } from "@fcongson/lagom-ui";
 import { withPrefix } from "gatsby";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import "../../style/custom-style.sass";
+import "../../style/custom-style.css";
 import { useSiteMetadata } from "../../utils/useSiteMetadata";
 import { Footer } from "./Footer";
 import { Nav } from "./Nav";
