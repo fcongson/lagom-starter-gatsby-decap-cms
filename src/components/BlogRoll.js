@@ -1,5 +1,5 @@
 import { LinkButton } from "@fcongson/lagom-ui";
-import { Link, StaticQuery, graphql } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import { PreviewCompatibleImage } from "./PreviewCompatibleImage";
@@ -56,42 +56,34 @@ BlogRoll.propTypes = {
 };
 
 export function BlogRoll() {
-  return (
-    <StaticQuery
-      query={graphql`
-        query BlogRollQuery {
-          allMarkdownRemark(
-            sort: { frontmatter: { date: DESC } }
-            filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
-          ) {
-            edges {
-              node {
-                excerpt(pruneLength: 400)
-                id
-                fields {
-                  slug
-                }
-                frontmatter {
-                  title
-                  templateKey
-                  date(formatString: "MMMM DD, YYYY")
-                  featuredpost
-                  featuredimage {
-                    childImageSharp {
-                      gatsbyImageData(
-                        width: 120
-                        quality: 100
-                        layout: CONSTRAINED
-                      )
-                    }
-                  }
+  const data = useStaticQuery(graphql`
+    query BlogRollQuery {
+      allMarkdownRemark(
+        sort: { frontmatter: { date: DESC } }
+        filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+      ) {
+        edges {
+          node {
+            excerpt(pruneLength: 400)
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              templateKey
+              date(formatString: "MMMM DD, YYYY")
+              featuredpost
+              featuredimage {
+                childImageSharp {
+                  gatsbyImageData(width: 120, quality: 100, layout: CONSTRAINED)
                 }
               }
             }
           }
         }
-      `}
-      render={(data, count) => <BlogRollTemplate data={data} count={count} />}
-    />
-  );
+      }
+    }
+  `);
+  return <BlogRollTemplate data={data} />;
 }
