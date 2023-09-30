@@ -40,13 +40,13 @@ export const ProductsPageTemplate = ({
       </Hero>
       <Section>
         <Container>
-          <h3 className="has-text-weight-semibold is-size-2">{heading}</h3>
+          <h3>{heading}</h3>
           <p>{description}</p>
         </Container>
       </Section>
       <Section>
         <Container>
-          <h3 className="has-text-weight-semibold is-size-3">{main.heading}</h3>
+          <h3>{main.heading}</h3>
           <p>{main.description}</p>
         </Container>
       </Section>
@@ -73,10 +73,8 @@ export const ProductsPageTemplate = ({
       />
       <Section>
         <Container>
-          <h2 className="has-text-weight-semibold is-size-2">
-            {pricing.heading}
-          </h2>
-          <p className="is-size-5">{pricing.description}</p>
+          <h2>{pricing.heading}</h2>
+          <p>{pricing.description}</p>
           <Pricing data={pricing.plans} />
         </Container>
       </Section>

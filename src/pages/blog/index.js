@@ -9,6 +9,17 @@ export default function BlogIndexPage() {
       <div
         className="full-width-image-container"
         style={{
+          // width: "100vw",
+          // height: "400px",
+          // position: "relative",
+          // left: "50%",
+          // right: "50%",
+          // margin: "2em -50vw",
+          // display: "flex",
+          // justifyContent: "center",
+          // alignitems: "center",
+          // backgroundSize: "cover",
+          // backgroundPosition: "bottom",
           backgroundImage: `url('/images/kym-ellis-Ye6rupMjAWk-unsplash.jpg')`,
         }}
       >

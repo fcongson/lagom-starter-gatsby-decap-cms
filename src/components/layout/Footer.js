@@ -56,7 +56,6 @@ export const Footer = () => {
           </a>
           <a title="twitter" href="https://twitter.com">
             <img
-              className="fas fa-lg"
               src={twitter}
               alt="Twitter"
               style={{ width: "1em", height: "1em" }}

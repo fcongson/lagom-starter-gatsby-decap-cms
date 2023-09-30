@@ -1,4 +1,4 @@
-import { LinkButton } from "@fcongson/lagom-ui";
+import { Container, LinkButton } from "@fcongson/lagom-ui";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
@@ -23,12 +23,6 @@ const BlogRollTemplate = (props) => {
                   imageInfo={{
                     image: post.frontmatter.featuredimage,
                     alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                    width:
-                      post.frontmatter.featuredimage.childImageSharp
-                        .gatsbyImageData.width,
-                    height:
-                      post.frontmatter.featuredimage.childImageSharp
-                        .gatsbyImageData.height,
                   }}
                 />
               )}

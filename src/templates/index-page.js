@@ -39,13 +39,13 @@ export const IndexPageTemplate = ({
       </Hero>
       <Section>
         <Container>
-          <h2 className="title">{mainpitch.title}</h2>
-          <h3 className="subtitle">{mainpitch.description}</h3>
+          <h2>{mainpitch.title}</h2>
+          <h3>{mainpitch.description}</h3>
         </Container>
       </Section>
       <Section>
         <Container>
-          <h3 className="has-text-weight-semibold is-size-2">{heading}</h3>
+          <h3>{heading}</h3>
           <p>{description}</p>
         </Container>
       </Section>
@@ -59,7 +59,7 @@ export const IndexPageTemplate = ({
       </Section>
       <Section>
         <Container>
-          <h3 className="has-text-weight-semibold is-size-2">Latest stories</h3>
+          <h3>Latest stories</h3>
           <BlogRoll />
           <LinkButton to="/blog" Component={Link}>
             Read more

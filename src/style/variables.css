@@ -1,4 +1,4 @@
-* {
+:root {
   --primary: var(--lagom-core-colors-honey-base);
   --primary-invert: var(--lagom-core-colors-white);
   --body-color: var(--lagom-core-colors-grey-darker40);

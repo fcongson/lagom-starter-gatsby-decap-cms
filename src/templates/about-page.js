@@ -13,7 +13,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
     <Section>
       <Container>
         <PageHeader>{title}</PageHeader>
-        <PageContent className="content" content={content} />
+        <PageContent content={content} />
       </Container>
     </Section>
   );
