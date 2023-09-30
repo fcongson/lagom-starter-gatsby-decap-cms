@@ -1,12 +1,19 @@
-import * as React from "react";
+import { Container, PageHeader, Section } from "@fcongson/lagom-ui";
+import { Link } from "gatsby";
+import React from "react";
 import { Layout } from "../components/layout";
 
 const NotFoundPage = () => (
   <Layout>
-    <div>
-      <h1>NOT FOUND</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-    </div>
+    <Section>
+      <Container>
+        <PageHeader>404</PageHeader>
+        <h2>Page not found</h2>
+        <p>
+          <Link to="/">Return to homepage</Link>
+        </p>
+      </Container>
+    </Section>
   </Layout>
 );
 
