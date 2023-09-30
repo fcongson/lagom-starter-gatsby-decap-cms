@@ -1,19 +1,19 @@
-import * as React from "react";
+import { Quote } from "@fcongson/lagom-ui";
 import PropTypes from "prop-types";
+import React from "react";
 import { v4 } from "uuid";
 
-const Testimonials = ({ testimonials }) => (
-  <div>
+export const Testimonials = ({ testimonials }) => (
+  <>
     {testimonials.map((testimonial) => (
-      <article key={v4()} className="message">
-        <div className="message-body">
-          {testimonial.quote}
-          <br />
+      <article key={v4()}>
+        <Quote>
+          <p>"{testimonial.quote}"</p>
           <cite> – {testimonial.author}</cite>
-        </div>
+        </Quote>
       </article>
     ))}
-  </div>
+  </>
 );
 
 Testimonials.propTypes = {
@@ -24,5 +24,3 @@ Testimonials.propTypes = {
     })
   ),
 };
-
-export default Testimonials;
