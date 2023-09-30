@@ -34,14 +34,8 @@ export const Nav = () => {
             <Link to="/blog">Blog</Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li>
-            <Link to="/contact/examples">Form Examples</Link>
-          </li>
-          <li>
             <a
-              href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
+              href="https://github.com/fcongson/lagom-starter-gatsby-decap-cms"
               target="_blank"
               rel="noopener noreferrer"
             >

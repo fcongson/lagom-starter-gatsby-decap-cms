@@ -13,11 +13,13 @@ export const Footer = () => {
     <footer>
       <Section>
         <Container>
-          <img
-            src={logo}
-            alt="Lagom"
-            style={{ width: "10rem", height: "10rem" }}
-          />
+          <Link to="/" title="Logo">
+            <img
+              src={logo}
+              alt="Lagom"
+              style={{ width: "10rem", height: "10rem" }}
+            />
+          </Link>
         </Container>
       </Section>
       <Section>
@@ -33,24 +35,12 @@ export const Footer = () => {
               <Link to="/products">Products</Link>
             </li>
             <li>
-              <Link to="/contact/examples">Form Examples</Link>
+              <Link to="/blog">Blog</Link>
             </li>
             <li>
               <a href="/admin/" target="_blank" rel="noopener noreferrer">
                 Admin
               </a>
-            </li>
-          </ul>
-        </Container>
-      </Section>
-      <Section>
-        <Container>
-          <ul>
-            <li>
-              <Link to="/blog">Latest Stories</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
             </li>
           </ul>
         </Container>
