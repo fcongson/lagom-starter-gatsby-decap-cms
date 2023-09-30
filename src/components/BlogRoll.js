@@ -1,4 +1,4 @@
-import { Container, LinkButton } from "@fcongson/lagom-ui";
+import { LinkButton } from "@fcongson/lagom-ui";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";

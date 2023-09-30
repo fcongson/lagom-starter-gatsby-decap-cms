@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
 
-import { Container, Section } from "@fcongson/lagom-ui";
+import { Container } from "@fcongson/lagom-ui";
 import facebook from "../../../static/images/facebook.svg";
 import instagram from "../../../static/images/instagram.svg";
 import logo from "../../../static/images/logo.png";
@@ -10,20 +10,16 @@ import vimeo from "../../../static/images/vimeo.svg";
 
 export const Footer = () => {
   return (
-    <footer>
-      <Section>
-        <Container>
-          <Link to="/" title="Logo">
-            <img
-              src={logo}
-              alt="Lagom"
-              style={{ width: "10rem", height: "10rem" }}
-            />
-          </Link>
-        </Container>
-      </Section>
-      <Section>
-        <Container>
+    <Container>
+      <footer className="footer">
+        <Link to="/" title="Logo">
+          <img
+            src={logo}
+            alt="Lagom"
+            style={{ width: "10rem", height: "10rem" }}
+          />
+        </Link>
+        <div>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -43,10 +39,8 @@ export const Footer = () => {
               </a>
             </li>
           </ul>
-        </Container>
-      </Section>
-      <Section>
-        <Container>
+        </div>
+        <div>
           <a title="facebook" href="https://facebook.com">
             <img
               src={facebook}
@@ -75,8 +69,8 @@ export const Footer = () => {
               style={{ width: "1em", height: "1em" }}
             />
           </a>
-        </Container>
-      </Section>
-    </footer>
+        </div>
+      </footer>
+    </Container>
   );
 };

@@ -8,8 +8,8 @@ export const Nav = () => {
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <nav role="navigation" aria-label="main-navigation">
-      <Container>
+    <Container>
+      <nav role="navigation" aria-label="main-navigation" className="nav">
         <Link to="/" title="Logo">
           <img src={logo} alt="Lagom" style={{ width: "10rem" }} />
         </Link>
@@ -47,7 +47,7 @@ export const Nav = () => {
             </a>
           </li>
         </ul>
-      </Container>
-    </nav>
+      </nav>
+    </Container>
   );
 };

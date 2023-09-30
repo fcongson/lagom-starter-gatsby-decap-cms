@@ -4,19 +4,39 @@ html {
   background-color: var(--lagom-semantic-color-bg-default);
 }
 
-.navbar .navbar-menu {
-  box-shadow: none !important;
+.nav {
+  display: flex;
+}
+
+.nav ul {
+  list-style-type: none;
+}
+
+.nav a {
+  border: none;
+}
+
+.footer {
+  display: flex;
+}
+
+.footer a {
+  border: none;
+}
+
+.footer ul {
+  list-style-type: none;
 }
 
 .full-width-image-container {
   width: 100vw;
-  height: 400px;
+  height: 600px;
   position: relative;
   left: 50%;
   right: 50%;
   margin: 2rem -50vw;
   background-size: cover;
-  background-position: bottom;
+  background-position: top;
   display: flex;
   justify-content: center;
   align-items: center;
