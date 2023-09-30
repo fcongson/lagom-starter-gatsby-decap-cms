@@ -2,7 +2,7 @@
 templateKey: 'products-page'
 path: /products
 title: Our Coffee
-image: /images/jumbotron.jpg
+image: /images/kym-ellis-tq40ATQPbgY-unsplash.jpg
 heading: Great coffee with a conscience
 description: >-
   Kaldi is the ultimate spot for coffee lovers who want to learn about their
@@ -11,27 +11,27 @@ description: >-
   anyone.
 intro:
   blurbs:
-    - image: /images/coffee.png
+    - image: /images/chris-stenger-fRtdVQWa0Dk-unsplash.jpg
       text: >
         We sell green and roasted coffee beans that are sourced directly from
         independent farmers and farm cooperatives. We’re proud to offer a
         variety of coffee beans grown with great care for the environment and
         local communities. Check our post or contact us directly for current
         availability.
-    - image: /images/coffee-gear.png
+    - image: /images/guillaume-briard-o44kuHD8uFs-unsplash.jpg
       text: >
         We offer a small, but carefully curated selection of brewing gear and
         tools for every taste and experience level. No matter if you roast your
         own beans or just bought your first french press, you’ll find a gadget
         to fall in love with in our shop.
-    - image: /images/tutorials.png
+    - image: /images/hans-m-q4Gmk6X_z7o-unsplash.jpg
       text: >
         Love a great cup of coffee, but never knew how to make one? Bought a
         fancy new Chemex but have no clue how to use it? Don't worry, we’re here
         to help. You can schedule a custom 1-on-1 consultation with our baristas
         to learn anything you want to know about coffee roasting and brewing.
         Email us or call the store for details.
-    - image: /images/meeting-space.png
+    - image: /images/polina-kuzovkova-8sm4IuF7ajw-unsplash.jpg
       text: >
         We believe that good coffee has the power to bring people together.
         That’s why we decided to turn a corner of our shop into a cozy meeting
@@ -53,13 +53,13 @@ main:
     optimal for the plants, farmers and the local environment.
   image1:
     alt: A close-up of a paper filter filled with ground coffee
-    image: /images/products-grid3.jpg
+    image: /images/nikita-kachanovsky-pvcB8ns_jOY-unsplash.jpg
   image2:
     alt: A green cup of a coffee on a wooden table
-    image: /images/products-grid2.jpg
+    image: /images/valentin-salmon-lApGUncsyO4-unsplash.jpg
   image3:
     alt: Coffee beans
-    image: /images/products-grid1.jpg
+    image: /images/kym-ellis-Ye6rupMjAWk-unsplash.jpg
 testimonials:
   - author: Elisabeth Kaurismäki
     quote: >-
@@ -69,7 +69,7 @@ testimonials:
     quote: >-
       Kaldi is the place to go if you want the best quality coffee. I love their
       stance on empowering farmers and transparency.
-full_image: /images/products-full-width.jpg
+full_image: /images/kym-ellis-tq40ATQPbgY-unsplash.jpg
 pricing:
   heading: Monthly subscriptions
   description: >-

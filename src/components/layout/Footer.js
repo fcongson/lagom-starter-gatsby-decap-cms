@@ -4,7 +4,7 @@ import React from "react";
 import { Container, Section } from "@fcongson/lagom-ui";
 import facebook from "../../../static/images/facebook.svg";
 import instagram from "../../../static/images/instagram.svg";
-import logo from "../../../static/images/logo.svg";
+import logo from "../../../static/images/logo.png";
 import twitter from "../../../static/images/twitter.svg";
 import vimeo from "../../../static/images/vimeo.svg";
 
@@ -15,8 +15,8 @@ export const Footer = () => {
         <Container>
           <img
             src={logo}
-            alt="Kaldi"
-            style={{ width: "14em", height: "10em" }}
+            alt="Lagom"
+            style={{ width: "10rem", height: "10rem" }}
           />
         </Container>
       </Section>

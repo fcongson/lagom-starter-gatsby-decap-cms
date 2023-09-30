@@ -2,7 +2,7 @@ import { Container } from "@fcongson/lagom-ui";
 import { Link } from "gatsby";
 import React, { useState } from "react";
 import github from "../../../static/images/github-icon.svg";
-import logo from "../../../static/images/logo.svg";
+import logo from "../../../static/images/logo.png";
 
 export const Nav = () => {
   const [isActive, setIsActive] = useState(false);
@@ -11,7 +11,7 @@ export const Nav = () => {
     <nav role="navigation" aria-label="main-navigation">
       <Container>
         <Link to="/" title="Logo">
-          <img src={logo} alt="Kaldi" style={{ width: "88px" }} />
+          <img src={logo} alt="Lagom" style={{ width: "10rem" }} />
         </Link>
         {/* Hamburger menu */}
         <button
