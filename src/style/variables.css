@@ -3,4 +3,30 @@
   --primary-invert: var(--lagom-core-colors-white);
   --body-color: var(--lagom-core-colors-grey-darker40);
   --black: var(--lagom-core-colors-black);
+
+  --background-color: var(--lagom-semantic-color-bg-default);
+  --foreground-color: var(--lagom-semantic-color-fg-default);
+  --selection-color: var(--lagom-core-colors-olive-lighter40);
+
+  --font-sizes-h1: 48.829px;
+  --font-sizes-h2: 39.063px;
+  --font-sizes-h3: 31.25px;
+  --font-sizes-h4: 25px;
+  --font-sizes-h5: 20px;
+  --font-sizes-h6: 16px;
+
+  --line-heights-heading: 1.22;
+
+  --font-families-sans-serif: "Montserrat";
+  --font-families-header: var(--font-families-sans-serif);
+  --font-families-body: var(--font-families-sans-serif);
+
+  --font-sizes-body: 16px;
+
+  --line-heights-body: 1.7;
+
+  --page-header-font-family: var(--font-families-header);
+  --page-header-font-size: 121.5px;
+  --section-header-font-family: var(--font-families-header);
+  --section-header-font-size: 81px;
 }

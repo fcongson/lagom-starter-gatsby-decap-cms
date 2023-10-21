@@ -1,17 +1,17 @@
-import {
-  Container,
-  Hero,
-  LinkButton,
-  PageHeader,
-  Section,
-  SectionHeader,
-} from "@fcongson/lagom-ui";
+import { LinkButton } from "@fcongson/lagom-ui";
 import { Link, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import PropTypes from "prop-types";
 import React from "react";
 import { BlogRoll } from "../components/BlogRoll";
 import { Features } from "../components/Features";
+import {
+  Container,
+  Hero,
+  PageHeader,
+  Section,
+  SectionHeader,
+} from "../components/core";
 import { Layout } from "../components/layout";
 
 // eslint-disable-next-line

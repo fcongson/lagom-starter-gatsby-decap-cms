@@ -1,6 +1,6 @@
-import { Container, PageHeader, Section } from "@fcongson/lagom-ui";
 import React from "react";
 import { BlogRoll } from "../../components/BlogRoll";
+import { Container, PageHeader, Section } from "../../components/core";
 import { Layout } from "../../components/layout";
 
 export default function BlogIndexPage() {

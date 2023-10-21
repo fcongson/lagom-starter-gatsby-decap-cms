@@ -1,4 +1,5 @@
 @import "./variables.css";
+@import "./global-style.css";
 
 html {
   background-color: var(--lagom-semantic-color-bg-default);

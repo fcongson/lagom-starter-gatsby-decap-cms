@@ -1,12 +1,12 @@
 import { Link } from "gatsby";
 import React from "react";
 
-import { Container } from "@fcongson/lagom-ui";
 import facebook from "../../../static/images/facebook.svg";
 import instagram from "../../../static/images/instagram.svg";
 import logo from "../../../static/images/logo.png";
 import twitter from "../../../static/images/twitter.svg";
 import vimeo from "../../../static/images/vimeo.svg";
+import { Container } from "../core";
 
 export const Footer = () => {
   return (

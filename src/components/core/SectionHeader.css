@@ -1,0 +1,5 @@
+.section-header {
+  font-family: var(--section-header-font-family, sans-serif);
+  font-size: var(--section-header-font-size, var(--font-sizes-h2));
+  text-align: center;
+}

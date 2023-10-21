@@ -1,8 +1,8 @@
-import { Container } from "@fcongson/lagom-ui";
 import { Link } from "gatsby";
 import React, { useState } from "react";
 import github from "../../../static/images/github-icon.svg";
 import logo from "../../../static/images/logo.png";
+import { Container } from "../core";
 
 export const Nav = () => {
   const [isActive, setIsActive] = useState(false);
