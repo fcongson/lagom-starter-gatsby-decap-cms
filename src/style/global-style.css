@@ -9,14 +9,20 @@
 }
 
 html {
-  background-color: var(--background-color);
+  background-color: var(
+    --background-color,
+    var(--lagom-semantic-color-bg-default)
+  );
 }
 
 body {
   padding: 0;
   margin: 0;
-  background-color: var(--background-color);
-  color: var(--foreground-color);
+  background-color: var(
+    --background-color,
+    var(--lagom-semantic-color-bg-default)
+  );
+  color: var(--foreground-color, var(--lagom-semantic-color-fg-default));
   font-family: var(--font-families-body);
   font-size: var(--font-sizes-body);
   line-height: var(--line-heights-body);
@@ -34,28 +40,46 @@ h6 {
 }
 
 h1 {
-  font-size: var(--font-sizes-h1);
-  line-height: var(--line-heights-heading);
+  font-size: var(--font-sizes-h1, var(--lagom-core-font-sizes-h1));
+  line-height: var(
+    --line-heights-heading,
+    var(--lagom-core-line-heights-heading)
+  );
 }
 h2 {
-  font-size: var(--font-sizes-h2);
-  line-height: var(--line-heights-heading);
+  font-size: var(--font-sizes-h2, var(--lagom-core-font-sizes-h2));
+  line-height: var(
+    --line-heights-heading,
+    var(--lagom-core-line-heights-heading)
+  );
 }
 h3 {
-  font-size: var(--font-sizes-h3);
-  line-height: var(--line-heights-heading);
+  font-size: var(--font-sizes-h3, var(--lagom-core-font-sizes-h3));
+  line-height: var(
+    --line-heights-heading,
+    var(--lagom-core-line-heights-heading)
+  );
 }
 h4 {
-  font-size: var(--font-sizes-h4);
-  line-height: var(--line-heights-heading);
+  font-size: var(--font-sizes-h4, var(--lagom-core-font-sizes-h4));
+  line-height: var(
+    --line-heights-heading,
+    var(--lagom-core-line-heights-heading)
+  );
 }
 h5 {
-  font-size: var(--font-sizes-h5);
-  line-height: var(--line-heights-heading);
+  font-size: var(--font-sizes-h5, var(--lagom-core-font-sizes-h5));
+  line-height: var(
+    --line-heights-heading,
+    var(--lagom-core-line-heights-heading)
+  );
 }
 h6 {
-  font-size: var(--font-sizes-h6);
-  line-height: var(--line-heights-heading);
+  font-size: var(--font-sizes-h6, var(--lagom-core-font-sizes-h6));
+  line-height: var(
+    --line-heights-heading,
+    var(--lagom-core-line-heights-heading)
+  );
 }
 
 strong {

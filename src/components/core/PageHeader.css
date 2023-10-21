@@ -1,5 +1,4 @@
 .page-header {
-  font-family: var(--page-header-font-family, sans-serif);
-  font-size: var(--page-header-font-size, var(--font-sizes-h1));
+  font: var(--lagom-component-page-header-typography);
   text-align: center;
 }
