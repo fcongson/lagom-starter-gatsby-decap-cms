@@ -1,8 +1,8 @@
-import { LinkButton } from "@fcongson/lagom-ui";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import { PreviewCompatibleImage } from "./PreviewCompatibleImage";
+import { Button } from "./core";
 
 const BlogRollTemplate = (props) => {
   const { edges: posts } = props.data.allMarkdownRemark;
@@ -32,9 +32,9 @@ const BlogRollTemplate = (props) => {
               </p>
             </header>
             <p>{post.excerpt}</p>
-            <LinkButton to={post.fields.slug} Component={Link}>
-              Keep Reading →
-            </LinkButton>
+            <Link to={post.fields.slug}>
+              <Button>Keep Reading →</Button>
+            </Link>
           </article>
         ))}
     </>

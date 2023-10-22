@@ -1,4 +1,3 @@
-import { LinkButton } from "@fcongson/lagom-ui";
 import { Link, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import PropTypes from "prop-types";
@@ -6,6 +5,7 @@ import React from "react";
 import { BlogRoll } from "../components/BlogRoll";
 import { Features } from "../components/Features";
 import {
+  Button,
   Container,
   Hero,
   PageHeader,
@@ -52,18 +52,18 @@ export const IndexPageTemplate = ({
       <Section>
         <Container>
           <Features gridItems={intro.blurbs} />
-          <LinkButton to="/products" Component={Link}>
-            See all products
-          </LinkButton>
+          <Link to="/products">
+            <Button>See all products</Button>
+          </Link>
         </Container>
       </Section>
       <Section>
         <Container>
           <h3>Latest stories</h3>
           <BlogRoll />
-          <LinkButton to="/blog" Component={Link}>
-            Read more
-          </LinkButton>
+          <Link to="/blog">
+            <Button>Read more</Button>
+          </Link>
         </Container>
       </Section>
     </>
