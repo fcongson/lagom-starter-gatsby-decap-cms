@@ -9,8 +9,8 @@ export const Container = ({
 }) => {
   return (
     <div
-      className={`container ${!!className ? className : ""} ${
-        !!marginNone ? "container--margin-none" : ""
+      className={`lagom-container ${!!className ? className : ""} ${
+        !!marginNone ? "lagom-container--margin-none" : ""
       }`}
       {...restProps}
     >

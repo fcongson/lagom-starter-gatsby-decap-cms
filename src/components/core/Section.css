@@ -1,4 +1,4 @@
-.section {
+.lagom-section {
   /* Fallback */
   padding: 0 1rem;
 
@@ -14,7 +14,7 @@
   margin: 0 auto;
 }
 
-.section--background-color .container {
+.lagom-section--background-color .container {
   background-color: inherit;
   padding: var(--container-margin-bottom) 0;
   margin: 0 auto;

@@ -9,8 +9,8 @@ export const Section = ({
 }) => {
   return (
     <section
-      className={`section ${!!className ? className : ""} ${
-        !!backgroundColor ? "section--background-color" : ""
+      className={`lagom-section ${!!className ? className : ""} ${
+        !!backgroundColor ? "lagom-section--background-color" : ""
       }`}
       style={!!backgroundColor ? { backgroundColor: backgroundColor } : null}
       {...restProps}
