@@ -2,10 +2,14 @@
   -webkit-font-smoothing: antialiased;
 }
 ::selection {
-  background: var(--selection-color); /* WebKit/Blink Browsers */
+  background: var(
+    --lagom-core-colors-olive-lighter40
+  ); /* WebKit/Blink Browsers */
+  color: var(--lagom-core-colors-grey-darker40);
 }
 ::-moz-selection {
-  background: var(--selection-color); /* Gecko Browsers */
+  background: var(--lagom-core-colors-olive-lighter40); /* Gecko Browsers */
+  color: var(--lagom-core-colors-grey-darker40);
 }
 
 html {

@@ -1,7 +1,8 @@
 :root {
-  --selection-color: var(--lagom-core-colors-olive-lighter40);
-
   /* lagom overrides */
 
-  --lagom-component-button-border-radius: 0.5rem;
+  --lagom-component-section-width: 1400px;
+  --lagom-component-container-width: 800px;
+
+  --lagom-component-button-border-radius: 2rem 0 2rem 2rem;
 }
