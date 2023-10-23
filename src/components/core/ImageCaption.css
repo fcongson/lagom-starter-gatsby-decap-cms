@@ -1,0 +1,30 @@
+.image-caption__block-img {
+  margin-bottom: 2rem;
+}
+
+.image-caption__block-img img {
+  width: 100%;
+  height: auto;
+}
+
+.image-caption--emphasized {
+  width: 130%;
+  margin: 0 -15% 2rem -15%;
+}
+
+.image-caption--full-width {
+  max-height: 100vh;
+  margin-bottom: 8rem;
+}
+
+.image-caption--full-width div {
+  max-height: 100vh;
+}
+
+.image-caption__image-label {
+  display: block;
+  text-align: center;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--lagom-semantic-color-fg-subtle);
+}

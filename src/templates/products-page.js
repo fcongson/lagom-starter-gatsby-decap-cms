@@ -1,4 +1,3 @@
-import { ImageCaption } from "@fcongson/lagom-ui";
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import PropTypes from "prop-types";
@@ -6,7 +5,13 @@ import React from "react";
 import { PreviewCompatibleImage } from "../components/PreviewCompatibleImage";
 import { Pricing } from "../components/Pricing";
 import { Testimonials } from "../components/Testimonials";
-import { Container, Hero, PageHeader, Section } from "../components/core";
+import {
+  Container,
+  Hero,
+  ImageCaption,
+  PageHeader,
+  Section,
+} from "../components/core";
 import { Layout } from "../components/layout";
 
 // eslint-disable-next-line
