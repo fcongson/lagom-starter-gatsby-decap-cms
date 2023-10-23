@@ -12,19 +12,21 @@ export const ImageCaption = ({
   caption,
   ...restProps
 }) => {
-  if (emphasized) return <Emphasized {...restProps} image={image} />;
-  if (fullwidth) return <FullWidth {...restProps} image={image} />;
-  return <Default {...restProps} image={image} />;
+  if (emphasized)
+    return <Emphasized {...restProps} image={image} caption={caption} />;
+  if (fullwidth)
+    return <FullWidth {...restProps} image={image} caption={caption} />;
+  return <Default {...restProps} image={image} caption={caption} />;
 };
 
 const Emphasized = ({ image, caption }) => (
-  <div className="image-caption">
+  <div className="lagom-image-caption">
     <Section>
       <Container>
-        <figure className="image-caption__block-img image-caption--emphaiszed">
+        <figure className="lagom-image-caption__block-img lagom-image-caption--emphasized">
           {image}
           {caption && caption !== "" ? (
-            <figcaption className="image-caption__image-label">
+            <figcaption className="lagom-image-caption__image-label">
               {caption}
             </figcaption>
           ) : null}
@@ -35,11 +37,11 @@ const Emphasized = ({ image, caption }) => (
 );
 
 const FullWidth = ({ image, caption }) => (
-  <div className="image-caption">
-    <figure className="image-caption__block-img image-caption--full-width">
+  <div className="lagom-image-caption">
+    <figure className="lagom-image-caption__block-img lagom-image-caption--full-width">
       <div>{image}</div>
       {caption && caption !== "" ? (
-        <figcaption className="image-caption__image-label">
+        <figcaption className="lagom-image-caption__image-label">
           {caption}
         </figcaption>
       ) : null}
@@ -48,13 +50,13 @@ const FullWidth = ({ image, caption }) => (
 );
 
 const Default = ({ image, caption }) => (
-  <div className="image-caption image-caption--emphaiszed">
+  <div className="lagom-image-caption lagom-image-caption--emphaiszed">
     <Section>
       <Container>
-        <figure className="image-caption__block-img">
+        <figure className="lagom-image-caption__block-img">
           {image}
           {caption && caption !== "" ? (
-            <figcaption className="image-caption__image-label">
+            <figcaption className="lagom-image-caption__image-label">
               {caption}
             </figcaption>
           ) : null}
