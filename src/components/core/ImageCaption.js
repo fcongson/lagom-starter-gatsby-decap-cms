@@ -5,7 +5,6 @@ import { Section } from "./Section";
 import "./ImageCaption.css";
 
 export const ImageCaption = ({
-  children,
   emphasized,
   fullwidth,
   image,
@@ -20,48 +19,42 @@ export const ImageCaption = ({
 };
 
 const Emphasized = ({ image, caption }) => (
-  <div className="lagom-image-caption">
-    <Section>
-      <Container>
-        <figure className="lagom-image-caption__block-img lagom-image-caption--emphasized">
-          {image}
-          {caption && caption !== "" ? (
-            <figcaption className="lagom-image-caption__image-label">
-              {caption}
-            </figcaption>
-          ) : null}
-        </figure>
-      </Container>
-    </Section>
-  </div>
+  <Section className="lagom-image-caption">
+    <Container>
+      <figure className="lagom-image-caption__block-img lagom-image-caption--emphasized">
+        {image}
+        {caption && caption !== "" ? (
+          <figcaption className="lagom-image-caption__image-label">
+            {caption}
+          </figcaption>
+        ) : null}
+      </figure>
+    </Container>
+  </Section>
 );
 
 const FullWidth = ({ image, caption }) => (
-  <div className="lagom-image-caption">
-    <figure className="lagom-image-caption__block-img lagom-image-caption--full-width">
-      <div>{image}</div>
-      {caption && caption !== "" ? (
-        <figcaption className="lagom-image-caption__image-label">
-          {caption}
-        </figcaption>
-      ) : null}
-    </figure>
-  </div>
+  <figure className="lagom-image-caption lagom-image-caption__block-img lagom-image-caption--full-width">
+    <div>{image}</div>
+    {caption && caption !== "" ? (
+      <figcaption className="lagom-image-caption__image-label">
+        {caption}
+      </figcaption>
+    ) : null}
+  </figure>
 );
 
 const Default = ({ image, caption }) => (
-  <div className="lagom-image-caption lagom-image-caption--emphaiszed">
-    <Section>
-      <Container>
-        <figure className="lagom-image-caption__block-img">
-          {image}
-          {caption && caption !== "" ? (
-            <figcaption className="lagom-image-caption__image-label">
-              {caption}
-            </figcaption>
-          ) : null}
-        </figure>
-      </Container>
-    </Section>
-  </div>
+  <Section className="lagom-image-caption lagom-image-caption--emphaiszed">
+    <Container>
+      <figure className="lagom-image-caption__block-img">
+        {image}
+        {caption && caption !== "" ? (
+          <figcaption className="lagom-image-caption__image-label">
+            {caption}
+          </figcaption>
+        ) : null}
+      </figure>
+    </Container>
+  </Section>
 );
