@@ -12,6 +12,7 @@ import {
   PageHeader,
   Section,
 } from "../components/core";
+import { FeaturedSection } from "../components/core/FeaturedSection";
 import { Layout } from "../components/layout";
 
 // eslint-disable-next-line
@@ -38,25 +39,30 @@ export const ProductsPageTemplate = ({
       >
         <PageHeader>{title}</PageHeader>
       </Hero>
-      <Section>
-        <Container>
-          <h3>{heading}</h3>
-          <p>{description}</p>
-        </Container>
-      </Section>
-      <Section>
-        <Container>
-          <h3>{main.heading}</h3>
-          <p>{main.description}</p>
-        </Container>
-      </Section>
+      <FeaturedSection>
+        <h3>{heading}</h3>
+        <p>{description}</p>
+      </FeaturedSection>
+      <FeaturedSection backgroundColor="var(--lagom-semantic-color-accent-bg)">
+        <h3>{main.heading}</h3>
+        <p>{main.description}</p>
+      </FeaturedSection>
       <Section>
         <Container>
           <PreviewCompatibleImage imageInfo={main.image1} />
           <PreviewCompatibleImage imageInfo={main.image2} />
-          <PreviewCompatibleImage imageInfo={main.image3} />
         </Container>
       </Section>
+      <ImageCaption
+        image={
+          <GatsbyImage
+            image={main.image3.image.childImageSharp.gatsbyImageData}
+            style={{ height: "100%" }}
+          />
+        }
+        caption="Emphasized image"
+        emphasized
+      />
       <Section>
         <Container>
           <Testimonials testimonials={testimonials} />
@@ -69,6 +75,7 @@ export const ProductsPageTemplate = ({
             style={{ height: "100%" }}
           />
         }
+        caption="Full width image"
         fullwidth
       />
       <Section>

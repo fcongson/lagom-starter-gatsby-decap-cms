@@ -1,8 +1,52 @@
 :root {
+  --footer-links-flex-direction: row;
+  --footer-links-gap: 2rem;
+
   /* lagom overrides */
 
   --lagom-component-section-width: 1400px;
   --lagom-component-container-width: 800px;
 
   --lagom-component-button-border-radius: 2rem 0 2rem 2rem;
+}
+
+/* mobile portrait */
+@media screen and (max-width: 320px) {
+  :root {
+    --font-sizes-h1: 31.25px;
+    --font-sizes-h2: 25px;
+    --font-sizes-h3: 20px;
+    --font-sizes-h4: 16px;
+    --font-sizes-h5: 16px;
+    --font-sizes-h6: 16px;
+  }
+}
+
+/* mobile landscape */
+@media screen and (max-width: 568px) {
+}
+
+/* tablet portrait */
+@media screen and (max-width: 768px) {
+  :root {
+    --nav-flex-direction: column;
+    --nav-menu-button-display: block;
+    --nav-menu-display: none;
+    --footer-links-flex-direction: column;
+    --footer-links-gap: 0.5rem;
+    --font-sizes-h1: 39.063px;
+    --font-sizes-h2: 31.25px;
+    --font-sizes-h3: 25px;
+    --font-sizes-h4: 20px;
+    --font-sizes-h5: 16px;
+    --font-sizes-h6: 16px;
+  }
+}
+
+/* tablet landscape */
+@media screen and (max-width: 992px) {
+}
+
+/* emphasized */
+@media screen and (min-width: 1300px) {
 }

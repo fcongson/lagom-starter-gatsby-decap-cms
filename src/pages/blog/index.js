@@ -1,38 +1,46 @@
+import { graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import { BlogRoll } from "../../components/BlogRoll";
 import { Container, PageHeader, Section } from "../../components/core";
+import { FeaturedSection } from "../../components/core/FeaturedSection";
 import { Layout } from "../../components/layout";
 
-export default function BlogIndexPage() {
+export const query = graphql`
+  query {
+    file(relativePath: { eq: "kym-ellis-Ye6rupMjAWk-unsplash.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+      }
+    }
+  }
+`;
+
+export default function BlogIndexPage({ data }) {
   return (
     <Layout>
-      <div
-        className="full-width-image-container"
-        style={{
-          // width: "100vw",
-          // height: "400px",
-          // position: "relative",
-          // left: "50%",
-          // right: "50%",
-          // margin: "2em -50vw",
-          // display: "flex",
-          // justifyContent: "center",
-          // alignitems: "center",
-          // backgroundSize: "cover",
-          // backgroundPosition: "bottom",
-          backgroundImage: `url('/images/kym-ellis-Ye6rupMjAWk-unsplash.jpg')`,
-        }}
+      <FeaturedSection
+        image={
+          <GatsbyImage
+            image={data?.file?.childImageSharp?.gatsbyImageData}
+            style={{
+              height: "600px",
+            }}
+            objectFit="cover"
+            objectPosition="top"
+          />
+        }
       >
         <PageHeader
           style={{
             boxShadow:
-              "0.5rem 0 0 var(--lagom-core-colors-honey-base), -0.5rem 0 0 var(--lagom-core-colors-honey-base)",
-            backgroundColor: "var(--lagom-core-colors-honey-base)",
+              "0.5rem 0 0 var(--lagom-semantic-color-accent-bg), -0.5rem 0 0 var(--lagom-semantic-color-accent-bg)",
+            backgroundColor: "var(--lagom-semantic-color-accent-bg)",
           }}
         >
-          Latest Stories
+          Stories
         </PageHeader>
-      </div>
+      </FeaturedSection>
       <Section>
         <Container>
           <BlogRoll />

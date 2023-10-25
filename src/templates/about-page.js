@@ -12,7 +12,15 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   return (
     <Section>
       <Container>
-        <PageHeader>{title}</PageHeader>
+        <PageHeader
+          style={{
+            boxShadow:
+              "0.5rem 0 0 var(--lagom-core-colors-violet-lighter40), -0.5rem 0 0 var(--lagom-core-colors-violet-lighter40)",
+            backgroundColor: "var(--lagom-core-colors-violet-lighter40)",
+          }}
+        >
+          {title}
+        </PageHeader>
         <PageContent content={content} />
       </Container>
     </Section>

@@ -8,7 +8,7 @@ const BlogRollTemplate = (props) => {
   const { edges: posts } = props.data.allMarkdownRemark;
 
   return (
-    <>
+    <div className="blog-list">
       {posts &&
         posts.map(({ node: post }) => (
           <article
@@ -37,7 +37,7 @@ const BlogRollTemplate = (props) => {
             </Link>
           </article>
         ))}
-    </>
+    </div>
   );
 };
 
