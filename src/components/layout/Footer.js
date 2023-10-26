@@ -41,6 +41,11 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/style-guide" className="footer__link">
+                  Style guide
+                </Link>
+              </li>
+              <li>
                 <a
                   href="/admin/"
                   target="_blank"

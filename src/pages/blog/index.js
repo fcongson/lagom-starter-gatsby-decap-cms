@@ -2,8 +2,12 @@ import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import { BlogRoll } from "../../components/BlogRoll";
-import { Container, PageHeader, Section } from "../../components/core";
-import { FeaturedSection } from "../../components/core/FeaturedSection";
+import {
+  Container,
+  FeaturedSection,
+  PageHeader,
+  Section,
+} from "../../components/core";
 import { Layout } from "../../components/layout";
 
 export const query = graphql`

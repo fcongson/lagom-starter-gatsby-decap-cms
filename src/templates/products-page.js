@@ -7,12 +7,12 @@ import { Pricing } from "../components/Pricing";
 import { Testimonials } from "../components/Testimonials";
 import {
   Container,
+  FeaturedSection,
   Hero,
   ImageCaption,
   PageHeader,
   Section,
 } from "../components/core";
-import { FeaturedSection } from "../components/core/FeaturedSection";
 import { Layout } from "../components/layout";
 
 // eslint-disable-next-line

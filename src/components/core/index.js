@@ -1,5 +1,6 @@
 export * from "./Button";
 export * from "./Container";
+export * from "./FeaturedSection";
 export * from "./Hero";
 export * from "./ImageCaption";
 export * from "./LinkButton";
