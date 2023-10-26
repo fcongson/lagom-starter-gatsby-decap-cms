@@ -15,7 +15,7 @@ import { Layout } from "../components/layout";
 
 export const query = graphql`
   query {
-    file(relativePath: { eq: "kym-ellis-Ye6rupMjAWk-unsplash.jpg" }) {
+    file(relativePath: { eq: "hans-m-q4Gmk6X_z7o-unsplash.jpg" }) {
       childImageSharp {
         gatsbyImageData(quality: 100, layout: FULL_WIDTH)
       }
