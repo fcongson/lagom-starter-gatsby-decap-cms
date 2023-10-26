@@ -5,9 +5,9 @@ import React from "react";
 import { BlogRoll } from "../components/BlogRoll";
 import { Features } from "../components/Features";
 import {
-  Button,
   Container,
   Hero,
+  LinkButton,
   PageHeader,
   Section,
   SectionHeader,
@@ -52,18 +52,18 @@ export const IndexPageTemplate = ({
       <Section>
         <Container>
           <Features gridItems={intro.blurbs} />
-          <Link to="/products">
-            <Button>See all products</Button>
-          </Link>
+          <LinkButton to="/products" Component={Link}>
+            See all products
+          </LinkButton>
         </Container>
       </Section>
       <Section>
         <Container>
           <h3>Latest stories</h3>
           <BlogRoll />
-          <Link to="/blog">
-            <Button>Read more</Button>
-          </Link>
+          <LinkButton to="/blog" Component={Link}>
+            Read more
+          </LinkButton>
         </Container>
       </Section>
     </>
