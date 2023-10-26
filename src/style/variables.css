@@ -10,20 +10,18 @@
   --lagom-component-button-border-radius: 2rem 0 2rem 2rem;
 }
 
-/* mobile portrait */
-@media screen and (max-width: 320px) {
+/* tablet landscape */
+@media screen and (max-width: 992px) {
   :root {
-    --font-sizes-h1: 31.25px;
-    --font-sizes-h2: 25px;
-    --font-sizes-h3: 20px;
-    --font-sizes-h4: 16px;
-    --font-sizes-h5: 16px;
-    --font-sizes-h6: 16px;
+    --lagom-core-font-sizes-h1: 39.063px;
+    --lagom-core-font-sizes-h2: 31.25px;
+    --lagom-core-font-sizes-h3: 25px;
+    --lagom-core-font-sizes-h4: 20px;
+    --lagom-core-font-sizes-h5: 16px;
+    --lagom-core-font-sizes-h6: 16px;
+    --lagom-component-page-header-typography: 700 81px/1.22 "Montserrat";
+    --lagom-component-section-header-typography: 700 54px/1.22 "Montserrat";
   }
-}
-
-/* mobile landscape */
-@media screen and (max-width: 568px) {
 }
 
 /* tablet portrait */
@@ -34,17 +32,25 @@
     --nav-menu-display: none;
     --footer-links-flex-direction: column;
     --footer-links-gap: 0.5rem;
-    --font-sizes-h1: 39.063px;
-    --font-sizes-h2: 31.25px;
-    --font-sizes-h3: 25px;
-    --font-sizes-h4: 20px;
-    --font-sizes-h5: 16px;
-    --font-sizes-h6: 16px;
   }
 }
 
-/* tablet landscape */
-@media screen and (max-width: 992px) {
+/* mobile landscape */
+@media screen and (max-width: 568px) {
+  :root {
+    --lagom-core-font-sizes-h1: 31.25px;
+    --lagom-core-font-sizes-h2: 25px;
+    --lagom-core-font-sizes-h3: 20px;
+    --lagom-core-font-sizes-h4: 16px;
+    --lagom-core-font-sizes-h5: 16px;
+    --lagom-core-font-sizes-h6: 16px;
+    --lagom-component-page-header-typography: 700 54px/1.22 "Montserrat";
+    --lagom-component-section-header-typography: 700 36px/1.22 "Montserrat";
+  }
+}
+
+/* mobile portrait */
+@media screen and (max-width: 320px) {
 }
 
 /* emphasized */
