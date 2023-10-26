@@ -1,20 +1,23 @@
+import { clsx } from "clsx";
 import React from "react";
 import { Button } from "./Button";
+
 import "./LinkButton.css";
 
 export const LinkButton = ({
   children,
+  className,
   to,
   Component,
   primary = false,
   ...restProps
 }) =>
   !!Component ? (
-    <Component className={`lagom-link-button`} to={to}>
+    <Component className={clsx(`lagom-link-button`, className)} to={to}>
       <Button {...restProps}>{children}</Button>
     </Component>
   ) : (
-    <a className={`lagom-link-button`} href={to}>
+    <a className={clsx(`lagom-link-button`, className)} href={to}>
       <Button {...restProps}>{children}</Button>
     </a>
   );

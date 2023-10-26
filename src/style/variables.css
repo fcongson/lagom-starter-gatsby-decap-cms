@@ -1,4 +1,9 @@
 :root {
+  --nav-flex-direction: row;
+  --nav-menu-flex-direction: row;
+  --nav-menu-flex-gap: 2rem;
+  --nav-menu-button-display: none;
+  --nav-menu-display: flex;
   --footer-links-flex-direction: row;
   --footer-links-gap: 2rem;
 
@@ -32,6 +37,8 @@
 @media screen and (max-width: 568px) {
   :root {
     --nav-flex-direction: column;
+    --nav-menu-flex-direction: column;
+    --nav-menu-flex-gap: 1rem;
     --nav-menu-button-display: block;
     --nav-menu-display: none;
     --footer-links-flex-direction: column;

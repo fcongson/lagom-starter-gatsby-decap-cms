@@ -1,3 +1,4 @@
+import { clsx } from "clsx";
 import React from "react";
 import { Container } from "./Container";
 import { Section } from "./Section";
@@ -18,8 +19,8 @@ export const ImageCaption = ({
   return <Default {...restProps} image={image} caption={caption} />;
 };
 
-const Emphasized = ({ image, caption }) => (
-  <Section className="lagom-image-caption">
+const Emphasized = ({ className, image, caption }) => (
+  <Section className={clsx("lagom-image-caption", className)}>
     <Container>
       <figure className="lagom-image-caption__block-img lagom-image-caption--emphasized">
         {image}
@@ -33,8 +34,13 @@ const Emphasized = ({ image, caption }) => (
   </Section>
 );
 
-const FullWidth = ({ image, caption }) => (
-  <figure className="lagom-image-caption lagom-image-caption__block-img lagom-image-caption--full-width">
+const FullWidth = ({ className, image, caption }) => (
+  <figure
+    className={clsx(
+      "lagom-image-caption lagom-image-caption__block-img lagom-image-caption--full-width",
+      className
+    )}
+  >
     <div>{image}</div>
     {caption && caption !== "" ? (
       <figcaption className="lagom-image-caption__image-label">
@@ -44,8 +50,13 @@ const FullWidth = ({ image, caption }) => (
   </figure>
 );
 
-const Default = ({ image, caption }) => (
-  <Section className="lagom-image-caption lagom-image-caption--emphaiszed">
+const Default = ({ className, image, caption }) => (
+  <Section
+    className={clsx(
+      "lagom-image-caption lagom-image-caption--emphaiszed",
+      className
+    )}
+  >
     <Container>
       <figure className="lagom-image-caption__block-img">
         {image}

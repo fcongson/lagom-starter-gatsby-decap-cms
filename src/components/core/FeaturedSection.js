@@ -1,3 +1,4 @@
+import { clsx } from "clsx";
 import React from "react";
 import { Container } from "./Container";
 import { Section } from "./Section";
@@ -9,9 +10,15 @@ export const FeaturedSection = ({ image, backgroundColor, ...restProps }) => {
   return <ColorBackground backgroundColor={backgroundColor} {...restProps} />;
 };
 
-const ImageBackground = ({ children, image }) => {
+const ImageBackground = ({ children, className, image, framed }) => {
   return (
-    <div className="lagom-featured-section lagom-featured-section--image-background">
+    <div
+      className={clsx(
+        "lagom-featured-section lagom-featured-section--image-background",
+        className,
+        framed && "lagom-featured-section--framed"
+      )}
+    >
       <div className="lagom-featured-section__image">{image}</div>
       <div className="lagom-featured-section__image-overlay" />
       <Section>
@@ -23,10 +30,14 @@ const ImageBackground = ({ children, image }) => {
   );
 };
 
-const ColorBackground = ({ children, backgroundColor }) => {
+const ColorBackground = ({ children, className, backgroundColor, framed }) => {
   return (
     <Section
-      className="lagom-featured-section lagom-featured-section--color-background"
+      className={clsx(
+        "lagom-featured-section lagom-featured-section--color-background",
+        className,
+        framed && "lagom-featured-section--framed"
+      )}
       style={{ backgroundColor: backgroundColor }}
     >
       <Container>
