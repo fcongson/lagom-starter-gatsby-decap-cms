@@ -16,9 +16,10 @@ export const Nav = () => {
           <Link to="/" title="Logo" className="nav__logo">
             <img src={logo} alt="Lagom" />
           </Link>
-          {/* Hamburger menu */}
           <button
-            className={`nav__menu-button ${isActive && "nav__menu-button--active"}`}
+            className={`nav__menu-button ${
+              isActive && "nav__menu-button--active"
+            }`}
             aria-expanded={isActive}
             onClick={() => setIsActive(!isActive)}
           >

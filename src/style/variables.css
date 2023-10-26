@@ -26,18 +26,16 @@
 
 /* tablet portrait */
 @media screen and (max-width: 768px) {
+}
+
+/* mobile landscape */
+@media screen and (max-width: 568px) {
   :root {
     --nav-flex-direction: column;
     --nav-menu-button-display: block;
     --nav-menu-display: none;
     --footer-links-flex-direction: column;
     --footer-links-gap: 0.5rem;
-  }
-}
-
-/* mobile landscape */
-@media screen and (max-width: 568px) {
-  :root {
     --lagom-core-font-sizes-h1: 31.25px;
     --lagom-core-font-sizes-h2: 25px;
     --lagom-core-font-sizes-h3: 20px;
