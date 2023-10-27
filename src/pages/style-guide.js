@@ -204,6 +204,23 @@ export default function StyleGuide({ data }) {
           elit.
         </p>
       </FeaturedSection>
+      <FeaturedSection
+        image={
+          <GatsbyImage
+            image={data?.file?.childImageSharp?.gatsbyImageData}
+            alt={""}
+            style={{ height: "100%" }}
+            objectPosition="center center"
+          />
+        }
+        imageAsBackground
+        framed
+      >
+        <p>
+          Image Background Framed. Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit.
+        </p>
+      </FeaturedSection>
       <FeaturedSection>
         <p>
           Color Background. Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -217,6 +234,15 @@ export default function StyleGuide({ data }) {
         />
         <p>
           Color Background with Image. Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit.
+        </p>
+      </FeaturedSection>
+      <FeaturedSection
+        backgroundColor="var(--lagom-semantic-color-accent-bg)"
+        framed
+      >
+        <p>
+          Color Background Framed. Lorem ipsum dolor sit amet, consectetur
           adipiscing elit.
         </p>
       </FeaturedSection>

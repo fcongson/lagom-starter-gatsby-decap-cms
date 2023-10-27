@@ -13,5 +13,9 @@ html {
   background-color: var(--lagom-semantic-color-accent-bg);
   margin: 0 -15%;
   padding: 2rem 15%;
-  border-radius: 8px;
+  border-radius: var(--lagom-core-border-radius-sm);
+}
+
+.price-list {
+  list-style-type: none;
 }
