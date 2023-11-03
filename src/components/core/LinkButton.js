@@ -9,7 +9,6 @@ export const LinkButton = ({
   className,
   to,
   Component,
-  primary = false,
   ...restProps
 }) =>
   !!Component ? (
