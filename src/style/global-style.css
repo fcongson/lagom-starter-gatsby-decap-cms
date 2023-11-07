@@ -38,27 +38,27 @@ h6 {
 }
 
 h1 {
-  font-size: var(--lagom-core-font-sizes-h1);
+  font-size: var(--font-sizes-h1);
   line-height: var(--lagom-core-line-heights-heading);
 }
 h2 {
-  font-size: var(--lagom-core-font-sizes-h2);
+  font-size: var(--font-sizes-h2);
   line-height: var(--lagom-core-line-heights-heading);
 }
 h3 {
-  font-size: var(--lagom-core-font-sizes-h3);
+  font-size: var(--font-sizes-h3);
   line-height: var(--lagom-core-line-heights-heading);
 }
 h4 {
-  font-size: var(--lagom-core-font-sizes-h4);
+  font-size: var(--font-sizes-h4);
   line-height: var(--lagom-core-line-heights-heading);
 }
 h5 {
-  font-size: var(--lagom-core-font-sizes-h5);
+  font-size: var(--font-sizes-h5);
   line-height: var(--lagom-core-line-heights-heading);
 }
 h6 {
-  font-size: var(--lagom-core-font-sizes-h6);
+  font-size: var(--font-sizes-h6);
   line-height: var(--lagom-core-line-heights-heading);
 }
 

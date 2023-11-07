@@ -7,6 +7,28 @@
   --footer-links-flex-direction: row;
   --footer-links-gap: 2rem;
 
+  /* typography scales */
+  
+  --header-scale-1: 121.5px;
+  --header-scale-2: 81px;
+  --header-scale-3: 54px;
+  --header-scale-4: 36px;
+  --header-scale-5: 24px;
+  --header-scale-6: 16px;
+  --font-scale-1: var(--lagom-core-font-sizes-h1);
+  --font-scale-2: var(--lagom-core-font-sizes-h2);
+  --font-scale-3: var(--lagom-core-font-sizes-h3);
+  --font-scale-4: var(--lagom-core-font-sizes-h4);
+  --font-scale-5: var(--lagom-core-font-sizes-h5);
+  --font-scale-6: var(--lagom-core-font-sizes-h6);
+
+  --font-sizes-h1: var(--font-scale-1);
+  --font-sizes-h2: var(--font-scale-2);
+  --font-sizes-h3: var(--font-scale-3);
+  --font-sizes-h4: var(--font-scale-4);
+  --font-sizes-h5: var(--font-scale-5);
+  --font-sizes-h6: var(--font-scale-6);
+
   /* lagom overrides */
 
   --lagom-component-section-width: 1400px;
@@ -18,14 +40,16 @@
 /* tablet landscape */
 @media screen and (max-width: 992px) {
   :root {
-    --lagom-core-font-sizes-h1: 39.063px;
-    --lagom-core-font-sizes-h2: 31.25px;
-    --lagom-core-font-sizes-h3: 25px;
-    --lagom-core-font-sizes-h4: 20px;
-    --lagom-core-font-sizes-h5: 16px;
-    --lagom-core-font-sizes-h6: 16px;
-    --lagom-component-page-header-typography: 700 81px/1.22 "Montserrat";
-    --lagom-component-section-header-typography: 700 54px/1.22 "Montserrat";
+    --font-sizes-h1: var(--font-scale-2);
+    --font-sizes-h2: var(--font-scale-3);
+    --font-sizes-h3: var(--font-scale-4);
+    --font-sizes-h4: var(--font-scale-5);
+    --font-sizes-h5: var(--font-scale-6);
+    --font-sizes-h6: var(--font-scale-6);
+    --lagom-component-page-header-typography: 700 var(--header-scale-2) / 1.22
+      "Montserrat";
+    --lagom-component-section-header-typography: 700 var(--header-scale-3) /
+      1.22 "Montserrat";
   }
 }
 
@@ -43,14 +67,16 @@
     --nav-menu-display: none;
     --footer-links-flex-direction: column;
     --footer-links-gap: 0.5rem;
-    --lagom-core-font-sizes-h1: 31.25px;
-    --lagom-core-font-sizes-h2: 25px;
-    --lagom-core-font-sizes-h3: 20px;
-    --lagom-core-font-sizes-h4: 16px;
-    --lagom-core-font-sizes-h5: 16px;
-    --lagom-core-font-sizes-h6: 16px;
-    --lagom-component-page-header-typography: 700 54px/1.22 "Montserrat";
-    --lagom-component-section-header-typography: 700 36px/1.22 "Montserrat";
+    --font-sizes-h1: var(--font-scale-3);
+    --font-sizes-h2: var(--font-scale-4);
+    --font-sizes-h3: var(--font-scale-5);
+    --font-sizes-h4: var(--font-scale-6);
+    --font-sizes-h5: var(--font-scale-6);
+    --font-sizes-h6: var(--font-scale-6);
+    --lagom-component-page-header-typography: 700 var(--header-scale-3) / 1.22
+      "Montserrat";
+    --lagom-component-section-header-typography: 700 var(--header-scale-4) /
+      1.22 "Montserrat";
   }
 }
 
