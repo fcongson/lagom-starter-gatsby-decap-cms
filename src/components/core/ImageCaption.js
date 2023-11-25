@@ -53,7 +53,7 @@ const FullWidth = ({ className, image, caption }) => (
 const Default = ({ className, image, caption }) => (
   <Section
     className={clsx(
-      "lagom-image-caption lagom-image-caption--emphaiszed",
+      "lagom-image-caption",
       className
     )}
   >
