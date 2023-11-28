@@ -1,6 +1,3 @@
-import { graphql } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
-import React from "react";
 import {
   Container,
   FeaturedSection,
@@ -10,7 +7,10 @@ import {
   PageHeader,
   Quote,
   Section,
-} from "../components/core";
+} from "@fcongson/lagom-ui";
+import { graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import React from "react";
 import { Layout } from "../components/layout";
 
 export const query = graphql`

@@ -1,8 +1,8 @@
+import { LinkButton } from "@fcongson/lagom-ui";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import { PreviewCompatibleImage } from "./PreviewCompatibleImage";
-import { LinkButton } from "./core";
 
 const BlogRollTemplate = (props) => {
   const { edges: posts } = props.data.allMarkdownRemark;

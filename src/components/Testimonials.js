@@ -1,7 +1,7 @@
+import { Quote } from "@fcongson/lagom-ui";
 import PropTypes from "prop-types";
 import React from "react";
 import { v4 } from "uuid";
-import { Quote } from "./core";
 
 export const Testimonials = ({ testimonials }) => (
   <>
@@ -21,6 +21,6 @@ Testimonials.propTypes = {
     PropTypes.shape({
       quote: PropTypes.string,
       author: PropTypes.string,
-    })
+    }),
   ),
 };

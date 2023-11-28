@@ -1,9 +1,3 @@
-import { Link, graphql } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
-import PropTypes from "prop-types";
-import React from "react";
-import { BlogRoll } from "../components/BlogRoll";
-import { Features } from "../components/Features";
 import {
   Container,
   Hero,
@@ -11,7 +5,13 @@ import {
   PageHeader,
   Section,
   SectionHeader,
-} from "../components/core";
+} from "@fcongson/lagom-ui";
+import { Link, graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import PropTypes from "prop-types";
+import React from "react";
+import { BlogRoll } from "../components/BlogRoll";
+import { Features } from "../components/Features";
 import { Layout } from "../components/layout";
 
 // eslint-disable-next-line

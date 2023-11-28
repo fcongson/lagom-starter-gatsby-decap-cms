@@ -1,13 +1,13 @@
-import { graphql } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
-import React from "react";
-import { BlogRoll } from "../../components/BlogRoll";
 import {
   Container,
   FeaturedSection,
   PageHeader,
   Section,
-} from "../../components/core";
+} from "@fcongson/lagom-ui";
+import { graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import React from "react";
+import { BlogRoll } from "../../components/BlogRoll";
 import { Layout } from "../../components/layout";
 
 export const query = graphql`

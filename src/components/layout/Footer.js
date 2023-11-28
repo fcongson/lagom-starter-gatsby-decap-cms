@@ -1,19 +1,19 @@
 import { Link } from "gatsby";
 import React from "react";
+import { Container, Section } from "@fcongson/lagom-ui";
 
 import facebook from "../../../static/images/facebook.svg";
 import instagram from "../../../static/images/instagram.svg";
 import logo from "../../../static/images/logo.png";
 import twitter from "../../../static/images/twitter.svg";
 import vimeo from "../../../static/images/vimeo.svg";
-import { Container, Section } from "../core";
 
 import "./Footer.css";
 
 export const Footer = () => {
   return (
     <Section className="footer-section">
-      <Container>
+      <Container marginNone>
         <footer className="footer">
           <Link to="/" title="Logo" className="footer__logo">
             <img src={logo} alt="Lagom" />

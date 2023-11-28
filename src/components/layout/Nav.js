@@ -1,8 +1,8 @@
+import { Container, Section } from "@fcongson/lagom-ui";
 import { Link } from "gatsby";
 import React, { useState } from "react";
 import github from "../../../static/images/github-icon.svg";
 import logo from "../../../static/images/logo.png";
-import { Container, Section } from "../core";
 
 import "./Nav.css";
 
