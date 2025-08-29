@@ -18,6 +18,6 @@ Features.propTypes = {
     PropTypes.shape({
       image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
       text: PropTypes.string,
-    })
+    }),
   ),
 };

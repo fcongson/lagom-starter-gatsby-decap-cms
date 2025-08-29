@@ -37,13 +37,21 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "clean": "gatsby clean",
+    "setup": "node scripts/setup.js",
+    "setup-cms": "node scripts/setup-cms.js",
+    "dev": "yarn develop",
+    "develop": "gatsby develop",
     "start": "yarn develop",
-    "build": "yarn clean && gatsby build",
-    "develop": "yarn clean && gatsby develop",
+    "build": "gatsby build",
     "serve": "gatsby serve",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "gatsby clean",
+    "format": "prettier --write \"{gatsby-*.js,src/**/*.js}\"",
+    "lint": "eslint --ext .js,.jsx src/",
+    "type-check": "tsc --noEmit",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "analyze": "npm run build && npx gatsby-plugin-webpack-bundle-analyser-v2",
+    "cms:proxy": "npx netlify-cms-proxy-server"
   },
   "devDependencies": {
     "prettier": "^3.6.2"

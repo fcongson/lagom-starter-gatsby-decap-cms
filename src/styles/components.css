@@ -1,10 +1,9 @@
-@import "./variables.css";
-@import "./global-style.css";
+/**
+ * Component Styles
+ * Specific styling for application components
+ */
 
-html {
-  background-color: var(--lagom-semantic-color-bg-default);
-}
-
+/* Blog Components */
 .blog-list-item {
   margin: 2rem 0;
 }
@@ -16,6 +15,7 @@ html {
   border-radius: var(--lagom-core-border-radius-sm);
 }
 
+/* Product Components */
 .price-list {
   list-style-type: none;
 }

@@ -103,6 +103,22 @@ MacOS and WSL users who might also encounter some errors, check [node-gyp](https
 
 This plugin uses [gatsby-plugin-purgecss](https://www.gatsbyjs.org/packages/gatsby-plugin-purgecss/).
 
+## 📚 Documentation
+
+Comprehensive documentation is available in the [`docs/`](docs/) directory:
+
+- **[📋 Documentation Index](docs/README.md)** - Complete overview of all documentation
+- **[🚀 Setup Guide](docs/SETUP_GUIDE.md)** - Detailed setup and installation instructions
+- **[👥 User Management](docs/USER_MANAGEMENT.md)** - Managing CMS users and permissions
+- **[🎨 Design & Styling](docs/STYLES.md)** - CSS architecture and design system usage
+- **[⚙️ CMS Configuration](docs/CMS_CONFIGURATION.md)** - Choosing and configuring CMS options
+- **[🔧 Customization](docs/CUSTOMIZATION.md)** - Advanced customization and extension guide
+
+### Quick Links
+- [Design Tokens Guide](docs/DESIGN_TOKENS.md)
+- [User Quick Reference](docs/USER_QUICK_REFERENCE.md)
+- [Deployment Variants](docs/VARIANTS.md)
+
 # CONTRIBUTING
 
 Contributions are always welcome, no matter how large or small. Before contributing,

@@ -1,0 +1,125 @@
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: "Create {{collection}} "{{slug}}""
+    update: "Update {{collection}} "{{slug}}""
+    delete: "Delete {{collection}} "{{slug}}""
+    uploadMedia: "[skip ci] Upload "{{path}}""
+    deleteMedia: "[skip ci] Delete "{{path}}""
+
+local_backend: true
+media_folder: static/images
+public_folder: /images
+
+# Display URL for preview
+display_url: https://your-site.netlify.app
+
+# Logo for CMS admin
+logo_url: https://your-site.netlify.app/images/logo.png
+
+collections:
+  # Site Settings
+  - name: "settings"
+    label: "⚙️ Site Settings"
+    files:
+      - file: "content/settings/general.md"
+        label: "General Settings"
+        name: "general"
+        fields:
+          - { label: "Site Title", name: "title", widget: "string", required: true }
+          - { label: "Site Description", name: "description", widget: "text", required: true }
+          - { label: "Site Logo", name: "logo", widget: "image", required: false }
+          - { label: "Favicon", name: "favicon", widget: "image", required: false }
+          - { label: "Contact Email", name: "email", widget: "string", pattern: ["^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", "Please enter a valid email"] }
+          - { label: "Phone Number", name: "phone", widget: "string", required: false }
+          
+      - file: "content/settings/social.md"
+        label: "Social Media"
+        name: "social"
+        fields:
+          - { label: "Facebook URL", name: "facebook", widget: "string", required: false }
+          - { label: "Twitter Handle (without @)", name: "twitter", widget: "string", required: false }
+          - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+          - { label: "LinkedIn URL", name: "linkedin", widget: "string", required: false }
+          - { label: "YouTube URL", name: "youtube", widget: "string", required: false }
+
+  # Blog Posts
+  - name: "blog"
+    label: "📝 Blog Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "blog/{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Publish Date", name: "date", widget: "datetime", required: true }
+      - { label: "Author", name: "author", widget: "string", default: "Admin" }
+      - { label: "Description", name: "description", widget: "text", hint: "This will appear in search results and social media previews" }
+      - { label: "Featured Image", name: "featuredimage", widget: "image", required: false }
+      - { label: "Featured Post", name: "featuredpost", widget: "boolean", default: false, hint: "Display this post prominently on homepage" }
+      - { label: "Tags", name: "tags", widget: "list", allow_add: true, hint: "Add relevant tags for better organization" }
+      - { label: "Body", name: "body", widget: "markdown", required: true }
+      - { label: "SEO Title", name: "seoTitle", widget: "string", required: false, hint: "Custom title for search engines (optional)" }
+      - { label: "SEO Description", name: "seoDescription", widget: "text", required: false, hint: "Custom description for search engines (optional)" }
+
+  # Pages
+  - name: "pages"
+    label: "📄 Pages"
+    files:
+      - file: "content/pages/index.md"
+        label: "🏠 Home Page"
+        name: "home"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero Image", name: "image", widget: "image" }
+          - { label: "Hero Heading", name: "heading", widget: "string" }
+          - { label: "Hero Subheading", name: "subheading", widget: "text" }
+          - { label: "Call to Action Text", name: "mainpitch", widget: "object", fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Description", name: "description", widget: "text" }
+            ]}
+          - { label: "Introduction", name: "intro", widget: "object", fields: [
+              { label: "Heading", name: "heading", widget: "string" },
+              { label: "Description", name: "description", widget: "text" },
+              { label: "Features", name: "blurbs", widget: "list", fields: [
+                { label: "Image", name: "image", widget: "image" },
+                { label: "Title", name: "title", widget: "string" },
+                { label: "Text", name: "text", widget: "text" }
+              ]}
+            ]}
+
+      - file: "content/pages/about.md"
+        label: "ℹ️ About Page"
+        name: "about"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Featured Image", name: "image", widget: "image", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+  # Navigation Menu
+  - name: "navigation"
+    label: "🧭 Navigation"
+    files:
+      - file: "content/settings/navigation.md"
+        label: "Main Menu"
+        name: "navigation"
+        fields:
+          - label: "Menu Items"
+            name: "menuItems"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Open in New Tab", name: "external", widget: "boolean", default: false }
+              - label: "Submenu Items"
+                name: "submenu"
+                widget: "list"
+                required: false
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+
+# Editor configuration for better UX
+editor:
+  preview: true

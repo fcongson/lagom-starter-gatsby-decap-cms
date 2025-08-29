@@ -1,0 +1,73 @@
+/**
+ * Theme-aware Icon Styles
+ * Icons that respond to light/dark mode using CSS custom properties
+ */
+
+/* Base icon styles */
+.icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
+  transition: fill 0.2s ease;
+}
+
+/* Social Media Icons */
+.icon--github {
+  fill: var(--lagom-semantic-color-fg-default);
+}
+
+.icon--facebook {
+  fill: var(--lagom-semantic-color-fg-default);
+}
+
+.icon--twitter {
+  fill: var(--lagom-semantic-color-fg-default);
+}
+
+.icon--instagram {
+  fill: var(--lagom-semantic-color-fg-default);
+}
+
+.icon--vimeo {
+  fill: var(--lagom-semantic-color-fg-default);
+}
+
+/* Icon hover states */
+.icon--github:hover {
+  fill: var(--lagom-semantic-color-fg-muted);
+}
+
+.icon--facebook:hover {
+  fill: #1877f2; /* Facebook brand blue */
+}
+
+.icon--twitter:hover {
+  fill: #1da1f2; /* Twitter brand blue */
+}
+
+.icon--instagram:hover {
+  fill: #e4405f; /* Instagram brand pink */
+}
+
+.icon--vimeo:hover {
+  fill: #1ab7ea; /* Vimeo brand blue */
+}
+
+/* Dark mode specific adjustments */
+[data-lagom-theme="dark"] .icon--github:hover {
+  fill: var(--lagom-core-colors-grey-lighter20);
+}
+
+/* Link containers for icons */
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.icon-link:hover {
+  transform: scale(1.1);
+}

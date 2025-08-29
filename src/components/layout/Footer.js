@@ -1,12 +1,8 @@
 import { Link } from "gatsby";
 import React from "react";
 import { Container, Section } from "@fcongson/lagom-ui";
-
-import facebook from "../../../static/images/facebook.svg";
-import instagram from "../../../static/images/instagram.svg";
+import { Icon } from "../Icon";
 import logo from "../../../static/images/logo.png";
-import twitter from "../../../static/images/twitter.svg";
-import vimeo from "../../../static/images/vimeo.svg";
 
 import "./Footer.css";
 
@@ -60,46 +56,34 @@ export const Footer = () => {
               <a
                 title="facebook"
                 href="https://facebook.com"
-                className="footer__link"
+                className="footer__link icon-link"
+                aria-label="Facebook"
               >
-                <img
-                  src={facebook}
-                  alt="Facebook"
-                  style={{ width: "1em", height: "1em" }}
-                />
+                <Icon type="facebook" />
               </a>
               <a
                 title="twitter"
                 href="https://twitter.com"
-                className="footer__link"
+                className="footer__link icon-link"
+                aria-label="Twitter"
               >
-                <img
-                  src={twitter}
-                  alt="Twitter"
-                  style={{ width: "1em", height: "1em" }}
-                />
+                <Icon type="twitter" />
               </a>
               <a
                 title="instagram"
                 href="https://instagram.com"
-                className="footer__link"
+                className="footer__link icon-link"
+                aria-label="Instagram"
               >
-                <img
-                  src={instagram}
-                  alt="Instagram"
-                  style={{ width: "1em", height: "1em" }}
-                />
+                <Icon type="instagram" />
               </a>
               <a
                 title="vimeo"
                 href="https://vimeo.com"
-                className="footer__link"
+                className="footer__link icon-link"
+                aria-label="Vimeo"
               >
-                <img
-                  src={vimeo}
-                  alt="Vimeo"
-                  style={{ width: "1em", height: "1em" }}
-                />
+                <Icon type="vimeo" />
               </a>
             </div>
           </div>

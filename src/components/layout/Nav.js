@@ -1,7 +1,7 @@
 import { Container, Section } from "@fcongson/lagom-ui";
 import { Link } from "gatsby";
 import React, { useState } from "react";
-import github from "../../../static/images/github-icon.svg";
+import { Icon } from "../Icon";
 import logo from "../../../static/images/logo.png";
 
 import "./Nav.css";
@@ -22,6 +22,7 @@ export const Nav = () => {
                 isActive && "nav__menu-button--active"
               }`}
               aria-expanded={isActive}
+              aria-label="Toggle navigation menu"
               onClick={() => setIsActive(!isActive)}
             >
               <span />
@@ -53,13 +54,10 @@ export const Nav = () => {
                 href="https://github.com/fcongson/lagom-starter-gatsby-decap-cms"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="nav__menu-link"
+                className="nav__menu-link icon-link"
+                aria-label="GitHub Repository"
               >
-                <img
-                  src={github}
-                  alt="Github"
-                  style={{ width: "1em", height: "1em" }}
-                />
+                <Icon type="github" />
               </a>
             </li>
           </ul>
