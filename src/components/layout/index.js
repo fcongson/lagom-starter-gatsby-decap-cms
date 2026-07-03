@@ -1,6 +1,7 @@
 import "@fcongson/lagom-tokens/css/theme/_dark.css";
 import "@fcongson/lagom-tokens/css/theme/_light.css";
 import "@fcongson/lagom-tokens/css/variables/_core.css";
+import "@fcongson/lagom-ui/style.css";
 import { ThemeProvider } from "@fcongson/lagom-ui";
 import { withPrefix } from "gatsby";
 import React, { useEffect, useState } from "react";

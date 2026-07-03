@@ -72,6 +72,15 @@ module.exports = {
       options: {
         develop: true, // Activates purging in npm run develop
         printRejected: true,
+        purgeCSSOptions: {
+          // @fcongson/lagom-ui ships its own static CSS (previously styled-components,
+          // which injected at runtime and never went through this plugin at all).
+          // By default this plugin only scans this repo's own src/**/*.{ts,js,jsx,tsx}
+          // for class usage, so it can't see lagom-ui's classNames rendered from its
+          // compiled JS in node_modules and strips all of them. Safelist by prefix
+          // instead of trying to get content-scanning to reach into node_modules.
+          safelist: [/^lagom-/],
+        },
       },
     }, // must be after other CSS plugins
     "gatsby-plugin-netlify", // make sure to keep it last in the array
