@@ -1,6 +1,6 @@
 import { Container, Section } from "@fcongson/lagom-ui";
 import { Link } from "gatsby";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Icon } from "../Icon";
 import logo from "../../../static/images/logo.png";
 

@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import React from "react";
 import { PreviewCompatibleImage } from "../components/PreviewCompatibleImage";
 
 export const Features = ({ gridItems }) => (

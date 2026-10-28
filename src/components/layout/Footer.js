@@ -1,5 +1,4 @@
 import { Link } from "gatsby";
-import React from "react";
 import { Container, Section } from "@fcongson/lagom-ui";
 import { Icon } from "../Icon";
 import logo from "../../../static/images/logo.png";
