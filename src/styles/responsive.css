@@ -6,7 +6,6 @@
 /* Tablet Landscape */
 @media screen and (max-width: 992px) {
   :root {
-    /* Layout adjustments */
     --nav-flex-direction: column;
     --nav-menu-flex-direction: column;
     --nav-menu-flex-gap: 1rem;
@@ -14,18 +13,6 @@
     --nav-menu-display: none;
     --footer-links-flex-direction: column;
     --footer-links-gap: 1rem;
-    
-    /* Typography scaling */
-    --font-sizes-h1: var(--font-scale-2);
-    --font-sizes-h2: var(--font-scale-3);
-    --font-sizes-h3: var(--font-scale-4);
-    --font-sizes-h4: var(--font-scale-5);
-    --font-sizes-h5: var(--font-scale-6);
-    --font-sizes-h6: var(--font-scale-6);
-    
-    /* Component typography */
-    --lagom-component-page-header-typography: 700 var(--header-scale-2) / 1.22 "Montserrat";
-    --lagom-component-section-header-typography: 700 var(--header-scale-3) / 1.22 "Montserrat";
   }
 }
 
@@ -34,23 +21,6 @@
   .blog-list-item.is-featured {
     margin: 0 -5%;
     padding: 1.5rem 5%;
-  }
-}
-
-/* Mobile Landscape */
-@media screen and (max-width: 568px) {
-  :root {
-    /* Further typography scaling */
-    --font-sizes-h1: var(--font-scale-3);
-    --font-sizes-h2: var(--font-scale-4);
-    --font-sizes-h3: var(--font-scale-5);
-    --font-sizes-h4: var(--font-scale-6);
-    --font-sizes-h5: var(--font-scale-6);
-    --font-sizes-h6: var(--font-scale-6);
-    
-    /* Component typography adjustments */
-    --lagom-component-page-header-typography: 700 var(--header-scale-3) / 1.22 "Montserrat";
-    --lagom-component-section-header-typography: 700 var(--header-scale-4) / 1.22 "Montserrat";
   }
 }
 

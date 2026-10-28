@@ -1,5 +1,5 @@
 .footer-section {
-  background-color: var(--lagom-semantic-color-bg-muted);
+  background-color: var(--lagom-semantic-color-bg-secondary);
 }
 .footer {
   display: flex;

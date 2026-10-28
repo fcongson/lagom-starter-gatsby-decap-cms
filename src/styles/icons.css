@@ -36,7 +36,7 @@
 
 /* Icon hover states */
 .icon--github:hover {
-  fill: var(--lagom-semantic-color-fg-muted);
+  fill: var(--lagom-semantic-color-fg-secondary);
 }
 
 .icon--facebook:hover {
@@ -53,11 +53,6 @@
 
 .icon--vimeo:hover {
   fill: #1ab7ea; /* Vimeo brand blue */
-}
-
-/* Dark mode specific adjustments */
-[data-lagom-theme="dark"] .icon--github:hover {
-  fill: var(--lagom-core-colors-grey-lighter20);
 }
 
 /* Link containers for icons */
