@@ -10,9 +10,44 @@
     --nav-menu-flex-direction: column;
     --nav-menu-flex-gap: 1rem;
     --nav-menu-button-display: block;
-    --nav-menu-display: none;
     --footer-links-flex-direction: column;
     --footer-links-gap: 1rem;
+  }
+
+  /* Collapse the mobile menu with height/fade instead of display:none, so
+     opening and closing it animates instead of popping. visibility is
+     delayed on the way out (and instant on the way in) so closed links
+     drop out of tab order only once they're actually hidden. */
+  .nav__menu {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    padding-top: 0;
+    transition:
+      max-height 300ms ease,
+      opacity 200ms ease,
+      padding-top 300ms ease,
+      visibility 0s 300ms;
+  }
+
+  .nav__menu--active {
+    max-height: 24rem;
+    opacity: 1;
+    visibility: visible;
+    padding-top: 16px;
+    transition:
+      max-height 300ms ease,
+      opacity 200ms ease,
+      padding-top 300ms ease,
+      visibility 0s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav__menu,
+    .nav__menu--active {
+      transition-duration: 0ms;
+    }
   }
 }
 

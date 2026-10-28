@@ -75,17 +75,13 @@
 }
 
 .nav__menu {
-  display: var(--nav-menu-display);
+  display: flex;
+  flex-direction: var(--nav-menu-flex-direction);
   align-items: center;
   margin: 0;
   padding: 16px 0 0 0;
   list-style-type: none;
   gap: var(--nav-menu-flex-gap);
-}
-
-.nav__menu--active {
-  display: flex;
-  flex-direction: var(--nav-menu-flex-direction);
 }
 
 .nav__menu-link {
