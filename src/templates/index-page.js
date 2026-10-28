@@ -9,12 +9,11 @@ import {
 import { Link, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import PropTypes from "prop-types";
-import React from "react";
 import { BlogRoll } from "../components/BlogRoll";
 import { Features } from "../components/Features";
 import { Layout } from "../components/layout";
+import { Seo } from "../components/Seo";
 
-// eslint-disable-next-line
 export const IndexPageTemplate = ({
   image,
   title,
@@ -31,6 +30,7 @@ export const IndexPageTemplate = ({
           <GatsbyImage
             image={image?.childImageSharp?.gatsbyImageData}
             style={{ height: "100%" }}
+            alt=""
           />
         }
       >
@@ -109,6 +109,8 @@ IndexPage.propTypes = {
 };
 
 export default IndexPage;
+
+export const Head = () => <Seo />;
 
 export const pageQuery = graphql`
   query IndexPageTemplate {

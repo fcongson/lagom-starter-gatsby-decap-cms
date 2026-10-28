@@ -1,11 +1,10 @@
 import { Container, PageHeader, Section } from "@fcongson/lagom-ui";
 import { graphql } from "gatsby";
 import PropTypes from "prop-types";
-import React from "react";
 import { Content, HTMLContent } from "../components/Content";
 import { Layout } from "../components/layout";
+import { Seo } from "../components/Seo";
 
-// eslint-disable-next-line
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content;
 
@@ -15,8 +14,8 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
         <PageHeader
           style={{
             boxShadow:
-              "0.5rem 0 0 var(--lagom-core-colors-violet-lighter40), -0.5rem 0 0 var(--lagom-core-colors-violet-lighter40)",
-            backgroundColor: "var(--lagom-core-colors-violet-lighter40)",
+              "0.5rem 0 0 var(--lagom-semantic-color-accent-bg), -0.5rem 0 0 var(--lagom-semantic-color-accent-bg)",
+            backgroundColor: "var(--lagom-semantic-color-accent-bg)",
           }}
         >
           {title}
@@ -52,6 +51,8 @@ AboutPage.propTypes = {
 };
 
 export default AboutPage;
+
+export const Head = ({ data }) => <Seo title={data.markdownRemark.frontmatter.title} />;
 
 export const aboutPageQuery = graphql`
   query AboutPage($id: String!) {

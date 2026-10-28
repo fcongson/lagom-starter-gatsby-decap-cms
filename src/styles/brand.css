@@ -1,0 +1,91 @@
+/**
+ * Brand overrides
+ *
+ * This file is intentionally empty of active rules, so the site renders as
+ * Base, lagom-tokens' neutral default brand. To make your own brand:
+ *
+ * 1. Override `--lagom-*` tokens here, scoped to a
+ *    `[data-lagom-brand~="your-brand"]` selector, and set `brand` in
+ *    site.config.js to the same name (gatsby-ssr.js puts it on <html>).
+ * 2. Set every colour role you change for BOTH light and dark mode
+ *    (dark mode is `[data-lagom-brand~="your-brand"][data-lagom-theme~="dark"]`).
+ * 3. Add increased-contrast values for any role that falls short of AAA
+ *    (7:1 text, 4.5:1 non-text), under `[data-lagom-contrast~="more"]` and
+ *    again inside `@media (prefers-contrast: more)`.
+ * 4. Load the fonts for any font you change (see the Fontsource imports in
+ *    src/components/layout/index.js for how this starter loads Base's).
+ * 5. Run `yarn check-brand` before committing. It checks every role
+ *    resolves and that light/dark/contrast pairs pass WCAG contrast.
+ *
+ * See @fcongson/lagom-ui's Theming guide for the full list of overridable
+ * tokens, and @fcongson/lagom-tokens' examples/white-label.css for the
+ * complete version of the example below ("rouge", a red accent on Base;
+ * reproduced here in full, including its increased-contrast blocks, so
+ * `yarn check-brand` passes once you uncomment it).
+ */
+
+/*
+[data-lagom-brand~="rouge"] {
+  --rouge-red-20: #591c14;
+  --rouge-red-35: #9d241c;
+  --rouge-red-40: #b4281f;
+  --rouge-red-70: #e79690;
+  --rouge-red-75: #eda7a3;
+  --rouge-red-90: #fadcda;
+  --lagom-semantic-color-accent-default: var(--rouge-red-40);
+  --lagom-semantic-color-accent-fg: var(--rouge-red-40);
+  --lagom-semantic-color-accent-bg: var(--rouge-red-90);
+  --lagom-semantic-color-focus-ring: var(--rouge-red-40);
+}
+
+[data-lagom-theme~="dark"] [data-lagom-brand~="rouge"],
+[data-lagom-brand~="rouge"] [data-lagom-theme~="dark"],
+[data-lagom-brand~="rouge"][data-lagom-theme~="dark"] {
+  --lagom-semantic-color-accent-default: var(--rouge-red-70);
+  --lagom-semantic-color-accent-fg: var(--rouge-red-70);
+  --lagom-semantic-color-accent-bg: var(--rouge-red-20);
+  --lagom-semantic-color-focus-ring: var(--rouge-red-70);
+}
+
+[data-lagom-contrast~="more"] [data-lagom-brand~="rouge"],
+[data-lagom-brand~="rouge"] [data-lagom-contrast~="more"],
+[data-lagom-brand~="rouge"][data-lagom-contrast~="more"] {
+  --lagom-semantic-color-accent-default: var(--rouge-red-35);
+  --lagom-semantic-color-accent-fg: var(--rouge-red-35);
+  --lagom-semantic-color-focus-ring: var(--rouge-red-35);
+}
+
+[data-lagom-theme~="dark"][data-lagom-contrast~="more"] [data-lagom-brand~="rouge"],
+[data-lagom-theme~="dark"] [data-lagom-contrast~="more"] [data-lagom-brand~="rouge"],
+[data-lagom-contrast~="more"] [data-lagom-theme~="dark"] [data-lagom-brand~="rouge"],
+[data-lagom-brand~="rouge"][data-lagom-contrast~="more"] [data-lagom-theme~="dark"],
+[data-lagom-brand~="rouge"] [data-lagom-contrast~="more"] [data-lagom-theme~="dark"],
+[data-lagom-contrast~="more"] [data-lagom-brand~="rouge"] [data-lagom-theme~="dark"],
+[data-lagom-contrast~="more"] [data-lagom-brand~="rouge"][data-lagom-theme~="dark"],
+[data-lagom-brand~="rouge"][data-lagom-theme~="dark"] [data-lagom-contrast~="more"],
+[data-lagom-brand~="rouge"] [data-lagom-theme~="dark"] [data-lagom-contrast~="more"],
+[data-lagom-theme~="dark"] [data-lagom-brand~="rouge"] [data-lagom-contrast~="more"],
+[data-lagom-theme~="dark"] [data-lagom-brand~="rouge"][data-lagom-contrast~="more"],
+[data-lagom-brand~="rouge"] [data-lagom-theme~="dark"][data-lagom-contrast~="more"],
+[data-lagom-brand~="rouge"][data-lagom-theme~="dark"][data-lagom-contrast~="more"] {
+  --lagom-semantic-color-accent-default: var(--rouge-red-75);
+  --lagom-semantic-color-accent-fg: var(--rouge-red-75);
+  --lagom-semantic-color-focus-ring: var(--rouge-red-75);
+}
+
+@media (prefers-contrast: more) {
+  [data-lagom-brand~="rouge"] {
+    --lagom-semantic-color-accent-default: var(--rouge-red-35);
+    --lagom-semantic-color-accent-fg: var(--rouge-red-35);
+    --lagom-semantic-color-focus-ring: var(--rouge-red-35);
+  }
+
+  [data-lagom-theme~="dark"] [data-lagom-brand~="rouge"],
+  [data-lagom-brand~="rouge"] [data-lagom-theme~="dark"],
+  [data-lagom-brand~="rouge"][data-lagom-theme~="dark"] {
+    --lagom-semantic-color-accent-default: var(--rouge-red-75);
+    --lagom-semantic-color-accent-fg: var(--rouge-red-75);
+    --lagom-semantic-color-focus-ring: var(--rouge-red-75);
+  }
+}
+*/

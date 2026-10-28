@@ -1,55 +1,44 @@
-import "@fcongson/lagom-tokens/css/theme/_dark.css";
-import "@fcongson/lagom-tokens/css/theme/_light.css";
-import "@fcongson/lagom-tokens/css/variables/_core.css";
 import "@fcongson/lagom-ui/style.css";
+import "@fcongson/lagom-tokens/css/lagom.css";
+import "../../styles/brand.css";
+import "@fontsource/lexend/400.css";
+import "@fontsource/lexend/600.css";
+import "@fontsource/lexend/700.css";
+import "@fontsource/source-serif-4/400.css";
+import "@fontsource/source-serif-4/400-italic.css";
+import "@fontsource/source-serif-4/700.css";
+import "@fontsource/dm-mono/400.css";
 import { ThemeProvider } from "@fcongson/lagom-ui";
-import { withPrefix } from "gatsby";
-import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
+import { useEffect } from "react";
 import "../../styles/main.css";
-import { useSiteMetadata } from "../../utils/useSiteMetadata";
 import { Footer } from "./Footer";
 import { Nav } from "./Nav";
 
-export const Layout = ({ children }) => {
-  const { title, description } = useSiteMetadata();
-
-  const [prefersDark, setPrefersDark] = useState(false);
+// gatsby-ssr.js sets the initial data-lagom-theme attribute (synchronously,
+// before paint, to avoid a flash). This effect just keeps it in sync if the
+// user changes their OS theme while the page is open.
+const useFollowSystemTheme = () => {
   useEffect(() => {
-    const media = window.matchMedia("(prefers-color-scheme:dark)");
-    setPrefersDark(media.matches);
-    media.onchange = (ev) => {
-      ev.matches ? setPrefersDark(true) : setPrefersDark(false);
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const applyTheme = (matches) => {
+      document.documentElement.setAttribute(
+        "data-lagom-theme",
+        matches ? "dark" : "light",
+      );
     };
+    applyTheme(media.matches);
+
+    const handleChange = (event) => applyTheme(event.matches);
+    media.addEventListener("change", handleChange);
+    return () => media.removeEventListener("change", handleChange);
   }, []);
+};
+
+export const Layout = ({ children }) => {
+  useFollowSystemTheme();
 
   return (
     <ThemeProvider>
-      <Helmet>
-        <html lang="en" data-lagom-theme={prefersDark ? "dark" : "light"} />
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta
-          name="viewport"
-          content="width=device-width,minimum-scale=1.0,initial-scale=1.0,viewport-fit=cover"
-        />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com/"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Domine:400,700&display=swap"
-          rel="stylesheet"
-          type="text/css"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href={`${withPrefix("/")}images/favicon.png`}
-          sizes="32x32"
-        />
-      </Helmet>
       <Nav />
       <main>{children}</main>
       <Footer />

@@ -1,14 +1,14 @@
 /**
  * Site Configuration
  * Centralized configuration for easy customization
- * Uses Lagom Design Tokens for consistent theming
  */
 
-// Import Lagom tokens for default values
-const { lagomSemanticColorBrandPrimary, lagomSemanticColorBrandSecondary, lagomSemanticColorBrandTertiary } = require('@fcongson/lagom-tokens/js/variables/semantic');
-const { lagomCoreColorsWhite, lagomCoreColorsBlack, lagomCoreColorsHoneyBase } = require('@fcongson/lagom-tokens/js/variables/core');
-
 module.exports = {
+  // The lagom-ui brand to use, set as `data-lagom-brand` on <html> by
+  // gatsby-ssr.js. Empty renders Base, Lagom's neutral default brand. See
+  // src/styles/brand.css for how to make your own.
+  brand: "",
+
   // Basic site information
   site: {
     title: "Lagom Starter - Gatsby + Decap CMS",
@@ -47,18 +47,6 @@ module.exports = {
       saturday: "Closed",
       sunday: "Closed"
     }
-  },
-
-  // Theme customization using Lagom tokens
-  theme: {
-    // Use Lagom brand colors by default
-    primaryColor: lagomSemanticColorBrandPrimary,   // #626E60 (Olive)
-    secondaryColor: lagomSemanticColorBrandSecondary, // #394E6F (Navy)
-    tertiaryColor: lagomSemanticColorBrandTertiary,  // #442C45 (Purple)
-    accentColor: lagomCoreColorsHoneyBase,           // #DCAE1D (Honey)
-    backgroundColor: lagomCoreColorsWhite,           // #ffffff
-    textColor: lagomCoreColorsBlack,                 // #111111
-    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif"
   },
 
   // Features toggle

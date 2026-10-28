@@ -1,7 +1,7 @@
 import { Container, PageHeader, Section } from "@fcongson/lagom-ui";
 import { Link } from "gatsby";
-import React from "react";
 import { Layout } from "../components/layout";
+import { Seo } from "../components/Seo";
 
 const NotFoundPage = () => (
   <Layout>
@@ -18,3 +18,5 @@ const NotFoundPage = () => (
 );
 
 export default NotFoundPage;
+
+export const Head = () => <Seo title="404: Page not found" />;
