@@ -1,14 +1,12 @@
 import { Quote } from "@fcongson/lagom-ui";
 import PropTypes from "prop-types";
-import React from "react";
-import { v4 } from "uuid";
 
 export const Testimonials = ({ testimonials }) => (
   <>
     {testimonials.map((testimonial) => (
-      <article key={v4()}>
+      <article key={crypto.randomUUID()}>
         <Quote>
-          <p>"{testimonial.quote}"</p>
+          <p>&ldquo;{testimonial.quote}&rdquo;</p>
           <cite> – {testimonial.author}</cite>
         </Quote>
       </article>
