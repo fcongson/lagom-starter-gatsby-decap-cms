@@ -1,7 +1,7 @@
 # 🚀 Quick Setup Guide
 
 ## Prerequisites
-- Node.js 20+ installed
+- Node.js 22+ installed
 - Yarn installed
 - Git installed
 - GitHub account, with a [personal access token](https://github.com/settings/tokens) scoped to `read:packages` (see the README's [GitHub Packages setup](../README.md#github-packages-setup) — `@fcongson/lagom-ui` and `@fcongson/lagom-tokens` install from there, not npm)

@@ -4,7 +4,7 @@ A [Gatsby](https://www.gatsbyjs.com/) starter styled with [Lagom UI](https://git
 
 ## Requirements
 
-- Node.js 20 or later
+- Node.js 22 or later
 - [Yarn](https://classic.yarnpkg.com/) (classic)
 - A GitHub account with read access to `@fcongson/lagom-ui` and `@fcongson/lagom-tokens`, both published to GitHub Packages rather than npm
 
