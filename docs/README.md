@@ -21,9 +21,6 @@ This directory contains comprehensive documentation for the Lagom Starter - Gats
 6. **[CMS Configuration](CMS_CONFIGURATION.md)** - Choosing between basic and enhanced CMS configs
 7. **[Customization Guide](CUSTOMIZATION.md)** - How to customize and extend the starter
 
-### Advanced Topics
-8. **[Variants](VARIANTS.md)** - Different deployment and configuration options
-
 ## 📁 Documentation Structure
 
 ```
@@ -35,8 +32,7 @@ docs/
 ├── DESIGN_TOKENS.md         # Design system and theming
 ├── STYLES.md                # CSS architecture and styling
 ├── CMS_CONFIGURATION.md     # CMS setup and configuration options
-├── CUSTOMIZATION.md         # Advanced customization guide
-└── VARIANTS.md              # Deployment and variant options
+└── CUSTOMIZATION.md         # Advanced customization guide
 ```
 
 ## 🔗 Related Files
@@ -62,7 +58,7 @@ Start with: [User Management](USER_MANAGEMENT.md) → [Quick Reference](USER_QUI
 Start with: [Design Tokens](DESIGN_TOKENS.md) → [Styles](STYLES.md) → [Customization](CUSTOMIZATION.md)
 
 ### 🚀 Site Administrators
-Start with: [Setup Guide](SETUP_GUIDE.md) → [User Management](USER_MANAGEMENT.md) → [Variants](VARIANTS.md)
+Start with: [Setup Guide](SETUP_GUIDE.md) → [User Management](USER_MANAGEMENT.md) → [CMS Configuration](CMS_CONFIGURATION.md)
 
 ---
 

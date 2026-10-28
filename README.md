@@ -1,111 +1,115 @@
 # Lagom Starter - Gatsby + Decap CMS
 
-## Getting Started (Recommended)
+A [Gatsby](https://www.gatsbyjs.com/) starter styled with [Lagom UI](https://github.com/fcongson/lagom-ui) and [Lagom Tokens](https://github.com/fcongson/lagom-tokens), content-managed with [Decap CMS](https://decapcms.org/). It ships as Base, Lagom's neutral default brand — see [Theming](#theming) to make it your own.
 
-Decap CMS can run in any frontend web environment, but the quickest way to try it out is by running it on a pre-configured starter site with Netlify. The example here is the Kaldi coffee company template (adapted from [One Click Hugo CMS](https://github.com/decaporg/one-click-hugo-cms)). Use the button below to build and deploy your own copy of the repository:
+## Requirements
 
-<a href="https://app.netlify.com/start/deploy?repository=https://github.com/decaporg/gatsby-starter-decap-cms&amp;stack=cms"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
+- Node.js 20 or later
+- [Yarn](https://classic.yarnpkg.com/) (classic)
+- A GitHub account with read access to `@fcongson/lagom-ui` and `@fcongson/lagom-tokens`, both published to GitHub Packages rather than npm
 
-After clicking that button, you’ll authenticate with GitHub and choose a repository name. Netlify will then automatically create a repository in your GitHub account with a copy of the files from the template. Next, it will build and deploy the new site on Netlify, bringing you to the site dashboard when the build is complete. Next, you’ll need to set up Netlify’s Identity service to authorize users to log in to the CMS.
+## GitHub Packages setup
 
-[Authenticate users with Netlify Identity](https://docs.netlify.com/visitor-access/identity/)
+`@fcongson/lagom-ui` and `@fcongson/lagom-tokens` are installed from GitHub Packages. The project's `.npmrc` already points the `@fcongson` scope there:
 
-[Git Gateway](https://docs.netlify.com/visitor-access/git-gateway/)
-
-### Access Locally
-
-Pulldown a local copy of the Github repository Netlify created for you, with the name you specified in the previous step
-
+```ini
+@fcongson:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${TOKEN}
 ```
-$ git clone https://github.com/[GITHUB_USERNAME]/[REPO_NAME].git
-$ cd [REPO_NAME]
+
+You still need to authenticate. Create a GitHub token with the `read:packages` scope, then:
+
+- **Locally:** put the token in your **user-level** `~/.npmrc` (not the project's):
+  ```ini
+  //npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
+  ```
+- **On Netlify (or another host):** set a `TOKEN` environment variable on the site to the same token. The project's committed `.npmrc` reads it via `${TOKEN}`, so no extra build configuration is needed.
+- **In GitHub Actions:** use `actions/setup-node` with `registry-url: "https://npm.pkg.github.com"` and `scope: "@fcongson"`, and set `NODE_AUTH_TOKEN` to a token with read access.
+
+If `yarn` fails with a 401 or 403, the token is missing, expired, or lacks `read:packages`.
+
+## Getting started
+
+```sh
+$ git clone https://github.com/fcongson/lagom-starter-gatsby-decap-cms
+$ cd lagom-starter-gatsby-decap-cms
 $ yarn
-$ netlify dev # or ntl dev
+$ yarn develop
 ```
 
-This uses [Netlify Dev](https://www.netlify.com/products/dev/?utm_source=blog&utm_medium=netlifycms&utm_campaign=devex) CLI feature to serve any functions you have in the `netlify/functions` folder.
+Visit `http://localhost:8000` for the site and `http://localhost:8000/admin` for the CMS.
 
-To test the CMS locally, you'll need to run a production build of the site:
+Optionally, run `yarn setup` for an interactive script that fills in your site's name, description, and author in `gatsby-config.js` and `package.json`.
 
-```
-$ npm run build
-$ netlify dev # or ntl dev
-```
+## Content with Decap CMS
 
-### Media Libraries (installed, but optional)
+Content lives as Markdown under `content/`, edited through Decap CMS at `/admin`. `static/admin/config.yml` defines the collections (blog posts and pages); `static/admin/config-enhanced.yml` is a richer alternative config with SEO fields and site settings — run `yarn setup-cms` to switch to it.
 
-Media Libraries have been included in this starter as a default. If you are not planning to use `Uploadcare` or `Cloudinary` in your project, you **can** remove them from module import and registration in `src/cms/cms.js`. Here is an example of the lines to comment or remove them your project.
+In production, the CMS backend is `git-gateway` (`static/admin/config.yml`), which on Netlify is backed by Netlify Identity. See [`docs/SETUP_GUIDE.md`](docs/SETUP_GUIDE.md) for enabling Identity and Git Gateway, and [`docs/USER_MANAGEMENT.md`](docs/USER_MANAGEMENT.md) for inviting editors.
 
-```javascript
-import CMS from "netlify-cms-app";
-// import uploadcare from 'netlify-cms-media-library-uploadcare'
-// import cloudinary from 'netlify-cms-media-library-cloudinary'
+To edit content locally without deploying first, run the CMS's local proxy in a second terminal:
 
-import AboutPagePreview from "./preview-templates/AboutPagePreview";
-import BlogPostPreview from "./preview-templates/BlogPostPreview";
-import ProductsPagePreview from "./preview-templates/ProductsPagePreview";
-import IndexPagePreview from "./preview-templates/IndexPagePreview";
-
-// CMS.registerMediaLibrary(uploadcare);
-// CMS.registerMediaLibrary(cloudinary);
-
-CMS.registerPreviewTemplate("index", IndexPagePreview);
-CMS.registerPreviewTemplate("about", AboutPagePreview);
-CMS.registerPreviewTemplate("products", ProductsPagePreview);
-CMS.registerPreviewTemplate("blog", BlogPostPreview);
+```sh
+$ yarn develop
+$ yarn cms:proxy   # in another terminal; runs `npx decap-server`
 ```
 
-Note: Don't forget to also remove them from `package.json` and `yarn.lock` / `package-lock.json` using `yarn` or `npm`. During the build netlify-cms-app will bundle the media libraries as well, having them removed will save you build time.
-Example:
+`static/admin/config.yml` has `local_backend: true`, so `/admin` connects to the proxy automatically and commits land as regular filesystem writes instead of GitHub commits.
 
-```
-yarn remove netlify-cms-media-library-uploadcare
-```
+Two optional media libraries (Cloudinary and Uploadcare) are registered but commented out in `src/cms/cms.js`. Uncomment the one you want, or remove both along with their packages (`decap-cms-media-library-cloudinary`, `decap-cms-media-library-uploadcare`) if you don't need either.
 
-OR
+> **Note:** `decap-cms-app` is pinned to `~3.6.0` rather than latest. Newer releases (3.7.0+) require React 19, but also bundle their own copy of `react-dom` 19 internally while `gatsby-plugin-decap-cms` still externalizes `react`/`react-dom` as classic UMD globals (a build React 19 no longer ships) — the combination currently crashes `/admin` on load. 3.6.0 predates that change and works with React 18's UMD builds. Revisit this pin once `gatsby-plugin-decap-cms` is updated for the new `decap-cms-app` bundling.
 
-```
-yarn remove netlify-cms-media-library-cloudinary
-```
+## Theming
 
-## Getting Started (Without Netlify)
+The site uses [Lagom UI 2](https://github.com/fcongson/lagom-ui) and [Lagom Tokens 2](https://github.com/fcongson/lagom-tokens). Out of the box, with no brand set, you get **Base**: Lagom's neutral default brand (grey and navy, Lexend/Source Serif 4/DM Mono), loaded from `@fcongson/lagom-ui/style.css` and `@fcongson/lagom-tokens/css/lagom.css` in `src/components/layout/index.js`.
 
-```
-$ gatsby new [SITE_DIRECTORY_NAME] https://github.com/decaporg/gatsby-starter-decap-cms/
-$ cd [SITE_DIRECTORY_NAME]
-$ npm run build
-$ npm run start
-```
+### Making your own brand
 
-### Setting up the CMS
+1. Override `--lagom-*` tokens in `src/styles/brand.css`, scoped to a `[data-lagom-brand~="your-brand"]` selector. The file has a commented guide and a complete worked example at the top.
+2. Set `brand: "your-brand"` in `site.config.js`. `gatsby-ssr.js` puts it on `<html>` as `data-lagom-brand` for every page.
+3. Run `yarn check-brand` (checks `src/styles/brand.css` against the lagom-tokens contract: every role resolves, and light/dark/increased-contrast pairs pass WCAG AA/AAA).
 
-Follow the [Decap CMS Quick Start Guide](https://www.netlifycms.org/docs/quick-start/#authentication) to set up authentication, and hosting for production.
+See lagom-ui's Theming guide (in its Storybook) for the full list of overridable tokens.
 
-If you want use Decap CMS locally, run the site in one terminal with `npm run start` and in another
-Terminal you can use `npx netlify-cms-proxy-server` which proxy requests so you'll be automatically logged
-in as a user on [http:localhost:3000/admin](http:localhost:3000/admin).
+### Fonts
 
-## Debugging
+Base's fonts are loaded from [Fontsource](https://fontsource.org/) packages, imported once in `src/components/layout/index.js` — no Google Fonts request is made:
 
-Windows users, who aren't using [WSL](https://docs.microsoft.com/en-us/windows/wsl/about), might encounter `node-gyp` errors when trying to npm install.
-To resolve, make sure that you have both Python 2.7 and the Visual C++ build environment installed.
+- `@fontsource/lexend` (headings and body)
+- `@fontsource/source-serif-4` (quotes)
+- `@fontsource/dm-mono` (code)
 
-```
-npm config set python python2.7
-npm install --global --production windows-build-tools
-```
+If your brand uses different fonts, add the matching Fontsource packages (or your own `@font-face` rules) and update those imports, plus the `--lagom-core-font-families-*` tokens in `brand.css`.
 
-[Full details here](https://www.npmjs.com/package/node-gyp "NPM node-gyp page").
+### Dark mode and increased contrast
 
-MacOS and WSL users who might also encounter some errors, check [node-gyp](https://github.com/nodejs/node-gyp) for more info. We recommend using the latest stable node version.
+Dark mode follows the visitor's OS preference (`prefers-color-scheme`): `gatsby-ssr.js` sets `data-lagom-theme` on `<html>` before first paint to avoid a flash, and `Layout` keeps it in sync if the OS theme changes while the page is open. Increased contrast (`prefers-contrast: more`) is handled entirely by `lagom.css` — no app code is involved.
 
-## Purgecss
+## Available scripts
 
-This plugin uses [gatsby-plugin-purgecss](https://www.gatsbyjs.org/packages/gatsby-plugin-purgecss/).
+| Script | Description |
+| --- | --- |
+| `yarn develop` / `yarn dev` / `yarn start` | Run the Gatsby development server |
+| `yarn build` | Build the production site into `public/` |
+| `yarn serve` | Serve the production build locally |
+| `yarn clean` | Clear Gatsby's cache (`gatsby clean`) |
+| `yarn lint` | Lint `src/` and the Gatsby config files with ESLint |
+| `yarn test` / `yarn test:watch` | Run the Jest test suite |
+| `yarn check-brand` | Validate `src/styles/brand.css` against the lagom-tokens contract |
+| `yarn format` | Format code with Prettier |
+| `yarn cms:proxy` | Run Decap CMS's local backend proxy (`npx decap-server`) |
+| `yarn setup` | Interactive script to set your site's name, description, and author |
+| `yarn setup-cms` | Switch between the basic and enhanced CMS configs |
+| `yarn analyze` | Build and open a webpack bundle analyzer |
+
+## Deploying
+
+The included `netlify.toml` builds the site on [Netlify](https://www.netlify.com/) (`yarn build`, publishing `public/`). Set the `TOKEN` environment variable described in [GitHub Packages setup](#github-packages-setup) on the Netlify site before the first build, and enable Identity + Git Gateway if you want to use Decap CMS in production (see [`docs/SETUP_GUIDE.md`](docs/SETUP_GUIDE.md)).
 
 ## 📚 Documentation
 
-Comprehensive documentation is available in the [`docs/`](docs/) directory:
+Further documentation is available in the [`docs/`](docs/) directory:
 
 - **[📋 Documentation Index](docs/README.md)** - Complete overview of all documentation
 - **[🚀 Setup Guide](docs/SETUP_GUIDE.md)** - Detailed setup and installation instructions
@@ -114,12 +118,12 @@ Comprehensive documentation is available in the [`docs/`](docs/) directory:
 - **[⚙️ CMS Configuration](docs/CMS_CONFIGURATION.md)** - Choosing and configuring CMS options
 - **[🔧 Customization](docs/CUSTOMIZATION.md)** - Advanced customization and extension guide
 
-### Quick Links
+### Quick links
+
 - [Design Tokens Guide](docs/DESIGN_TOKENS.md)
 - [User Quick Reference](docs/USER_QUICK_REFERENCE.md)
-- [Deployment Variants](docs/VARIANTS.md)
 
 # CONTRIBUTING
 
 Contributions are always welcome, no matter how large or small. Before contributing,
-please read the [code of conduct](CODE_OF_CONDUCT.md).
+please read the [code of conduct](CODE_OF_CONDUCT.md) and [contributing guide](CONTRIBUTING.md).

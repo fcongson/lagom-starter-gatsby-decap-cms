@@ -33,7 +33,8 @@
 
 ## Current Status
 
-Currently, the project has **both configurations** but **neither is active** because:
-- There's no `index.html` file in `/static/admin/` to load the CMS
-- The CMS is configured through `gatsby-plugin-netlify-cms` in `gatsby-config.js`
-- The plugin looks for `/static/admin/config.yml` by default
+The project ships both configurations, but only `config.yml` (Basic) is active: it's the file `/admin` loads. `config-enhanced.yml` is an alternative you opt into.
+
+- The CMS is configured through `gatsby-plugin-decap-cms` in `gatsby-config.js`, which auto-generates `/admin/index.html` at build time — there's no `index.html` to maintain in `static/admin/`.
+- Decap CMS loads `/static/admin/config.yml` by default.
+- Run `yarn setup-cms` to switch to the enhanced config (it backs up the basic one first).
