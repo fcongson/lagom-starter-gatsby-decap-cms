@@ -1,3 +1,8 @@
 [build]
   publish = "public"
   command = "yarn build"
+
+[build.environment]
+  # Netlify's build image otherwise defaults to Node 18, which is below
+  # package.json's engines.node (>= 20) and fails `yarn install` outright.
+  NODE_VERSION = "20"
