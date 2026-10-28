@@ -4,5 +4,6 @@
 
 [build.environment]
   # Netlify's build image otherwise defaults to Node 18, which is below
-  # package.json's engines.node (>= 20) and fails `yarn install` outright.
-  NODE_VERSION = "20"
+  # package.json's engines.node (>= 22, the current Node LTS) and fails
+  # `yarn install` outright.
+  NODE_VERSION = "22"
