@@ -1,9 +1,10 @@
 # 🚀 Quick Setup Guide
 
 ## Prerequisites
-- Node.js 18+ installed
+- Node.js 20+ installed
+- Yarn installed
 - Git installed
-- GitHub account
+- GitHub account, with a [personal access token](https://github.com/settings/tokens) scoped to `read:packages` (see the README's [GitHub Packages setup](../README.md#github-packages-setup) — `@fcongson/lagom-ui` and `@fcongson/lagom-tokens` install from there, not npm)
 - Netlify account (free)
 
 ## 5-Minute Setup
@@ -53,9 +54,9 @@
 ```bash
 git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
 cd YOUR_REPO_NAME
-npm install
-npm run setup  # Interactive setup script
-npm run dev
+yarn
+yarn setup  # Interactive setup script
+yarn dev
 ```
 
 ## User Management
@@ -110,7 +111,7 @@ npm run dev
 ## Customization Checklist
 - [ ] Update site title in `gatsby-config.js`
 - [ ] Replace logo in `static/images/`
-- [ ] Customize colors in `src/styles/theme.js`
+- [ ] Make your own brand in `src/styles/brand.css` (see the README's [Theming](../README.md#theming) section), or leave it empty to keep Base
 - [ ] Add your contact information
 - [ ] Configure Google Analytics (optional)
 - [ ] Set up contact forms

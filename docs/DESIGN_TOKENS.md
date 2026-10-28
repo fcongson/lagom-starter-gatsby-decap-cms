@@ -1,281 +1,84 @@
 # 🎨 Design Tokens Guide
 
-This project uses **Lagom Design Tokens** to maintain consistent design across all components. Instead of hardcoded values, we use a centralized token system.
+This project uses [Lagom Tokens 2](https://github.com/fcongson/lagom-tokens) for consistent design across all components. Tokens are plain CSS custom properties — there's no JavaScript token API; use `var(--lagom-...)` directly in CSS.
 
-## What are Design Tokens?
+## What are design tokens?
 
-Design tokens are named entities that store visual design attributes. They're the building blocks of your design system - colors, spacing, typography, etc.
+Design tokens are named entities that store visual design attributes — colors, spacing, typography, and so on — so values stay consistent and automatically follow brand, dark mode, and increased contrast instead of being hardcoded.
 
-## Available Token Categories
+## Token layers
 
-### 1. Colors
+- **Core** (`--lagom-core-*`): fonts, the type scale, spacing, radii, and opacity. Use these in your own CSS.
+- **Semantic** (`--lagom-semantic-*`): colors named by role (`fg-default`, `bg-secondary`, `accent-default`, `focus-ring`, ...), plus border and focus-ring widths. Values change with brand, mode, and contrast — **always use these for color**, never a palette stop.
+- **Component** (`--lagom-component-*`): values for specific Lagom components (`Button`, `PageHeader`, `Hero`, ...), mostly pointing at semantic and core tokens. Override these to change one component (see [Theming](#theming) below); don't read them.
+- **Palette** (`--lagom-grey-55`, `--lagom-navy-40`, ...): the brand's raw color ramps. Never use these directly in components — they don't follow brand, mode, or contrast.
 
-#### Brand Colors (Semantic)
-```javascript
-import { colors } from '../utils/tokens';
+## Using tokens
 
-// Primary brand color (Olive)
-colors.brand.primary // #626E60
-
-// Secondary brand color (Navy)  
-colors.brand.secondary // #394E6F
-
-// Tertiary brand color (Purple)
-colors.brand.tertiary // #442C45
-```
-
-#### Core Colors
-```javascript
-// Base colors
-colors.core.black // #111111
-colors.core.white // #ffffff
-colors.core.transparent // hsla(0, 0%, 100%, 0)
-
-// Grey scale
-colors.grey.darker40 // #222222
-colors.grey.base // #878787
-colors.grey.lighter40 // #ededed
-```
-
-#### Color Families
-```javascript
-// Honey (Warning/Accent colors)
-colors.honey.base // #DCAE1D
-colors.honey.lighter20 // #EDCF73
-
-// Olive (Success/Nature colors) 
-colors.olive.base // #626E60
-colors.olive.lighter40 // #CACFC9
-
-// Navy (Info/Professional colors)
-colors.navy.base // #394E6F
-colors.navy.lighter20 // #7A8FB8
-```
-
-### 2. Spacing
-
-```javascript
-import { spacing } from '../utils/tokens';
-
-spacing.xs  // 2px
-spacing.sm  // 4px  
-spacing.md  // 8px
-spacing.lg  // 16px
-spacing.xl  // 32px
-spacing.xxl // 64px
-```
-
-### 3. Border Radius
-
-```javascript
-import { borderRadius } from '../utils/tokens';
-
-borderRadius.xs  // 4px
-borderRadius.sm  // 8px
-borderRadius.md  // 12px
-borderRadius.lg  // 16px
-borderRadius.xl  // 20px
-borderRadius.xxl // 24px
-```
-
-### 4. Typography
-
-```javascript
-import { typography } from '../utils/tokens';
-
-typography.body // "400 16px/1.7 Montserrat, sans-serif"
-```
-
-## Usage Examples
-
-### In React Components
-
-```javascript
-import React from 'react';
-import { colors, spacing, borderRadius } from '../utils/tokens';
-
-const Button = ({ children, variant = 'primary' }) => {
-  const buttonStyle = {
-    backgroundColor: variant === 'primary' ? colors.brand.primary : colors.grey.base,
-    color: colors.core.white,
-    padding: `${spacing.md} ${spacing.lg}`,
-    borderRadius: borderRadius.md,
-    border: 'none',
-    cursor: 'pointer'
-  };
-
-  return <button style={buttonStyle}>{children}</button>;
-};
-```
-
-### In CSS Modules
+### In CSS
 
 ```css
-/* Use CSS custom properties generated from tokens */
-.button {
-  background-color: var(--lagom-semantic-color-brand-primary);
+.my-component {
+  background-color: var(--lagom-semantic-color-bg-secondary);
+  color: var(--lagom-semantic-color-fg-default);
   padding: var(--lagom-core-spacing-md) var(--lagom-core-spacing-lg);
   border-radius: var(--lagom-core-border-radius-md);
+  font-family: var(--lagom-core-font-families-body);
 }
 ```
 
-### With CSS-in-JS Libraries (Styled Components, Emotion)
+### Inline styles (React)
 
-```javascript
-import styled from 'styled-components';
-import { colors, spacing, borderRadius } from '../utils/tokens';
+A handful of components in this starter set a token as an inline style when the value needs to come from JS (see `src/templates/about-page.js`):
 
-const StyledButton = styled.button`
-  background-color: ${colors.brand.primary};
-  color: ${colors.core.white};
-  padding: ${spacing.md} ${spacing.lg};
-  border-radius: ${borderRadius.md};
-  border: none;
-  cursor: pointer;
-  
-  &:hover {
-    background-color: ${colors.olive.darker10};
-  }
-`;
+```jsx
+<PageHeader
+  style={{
+    backgroundColor: "var(--lagom-semantic-color-accent-bg)",
+  }}
+>
 ```
 
-### Using the Theme Object
+## Common semantic roles
 
-The centralized theme object combines tokens with additional customizations:
+- `--lagom-semantic-color-fg-default` / `-secondary` / `-tertiary`: text, from most to least prominent
+- `--lagom-semantic-color-bg-default` / `-secondary` / `-tertiary`: backgrounds, from the page down to the most prominent neutral surface
+- `--lagom-semantic-color-border-default` / `-secondary`: dividers and outlines
+- `--lagom-semantic-color-accent-default` / `-fg` / `-bg`: the brand mark, accent text/links, and soft accent surfaces
+- `--lagom-semantic-color-selection-bg`: text selection highlight
+- `--lagom-semantic-color-focus-ring`: keyboard focus indicator
 
-```javascript
-import theme from '../styles/theme';
+See lagom-ui's **Using Tokens** guide (in its Storybook) for the complete list, including every spacing, typography, and radius token and their values.
 
-const Component = () => (
-  <div style={{
-    color: theme.colors.primary,
-    padding: theme.spacing[4],
-    borderRadius: theme.borderRadius.md,
-    fontSize: theme.fontSizes.lg
-  }}>
-    Content with consistent theming
-  </div>
-);
-```
+## Theming
 
-## Advanced Usage
+Three attributes — settable on `<html>` or any element inside it — choose what shows:
 
-### Getting Tokens Dynamically
+- `data-lagom-brand="…"`: the brand (no attribute: **Base**, Lagom's neutral default)
+- `data-lagom-theme="dark"`: dark mode (no attribute: light)
+- `data-lagom-contrast="more"`: increased contrast (the `prefers-contrast: more` media query also triggers it)
 
-```javascript
-import { getToken } from '../utils/tokens';
+This starter sets `data-lagom-brand` from `site.config.js`'s `brand` field (via `gatsby-ssr.js`) and `data-lagom-theme` from the visitor's OS preference (via `gatsby-ssr.js` and `src/components/layout/index.js`).
 
-// Safe access to nested token values
-const primaryColor = getToken('light.lagomSemanticColorBrandPrimary', '#000000');
-const spacing = getToken('core.lagomCoreSpacingLg', '16px');
-```
+To make your own brand, override tokens in `src/styles/brand.css`, scoped to `[data-lagom-brand~="your-brand"]`. The file has a full guide and worked example in its header comment. Run `yarn check-brand` to validate it against the lagom-tokens contract (every role resolves, and light/dark/increased-contrast pairs pass WCAG contrast).
 
-### Theme Switching (Light/Dark)
-
-```javascript
-import { getTokens } from '../utils/tokens';
-
-const ThemeProvider = ({ theme = 'light', children }) => {
-  const tokens = getTokens(theme);
-  
-  return (
-    <div style={{ 
-      backgroundColor: tokens.lagomCoreColorsWhite,
-      color: tokens.lagomCoreColorsBlack 
-    }}>
-      {children}
-    </div>
-  );
-};
-```
-
-### CSS Custom Properties Generation
-
-```javascript
-import { createCSSVariables } from '../utils/tokens';
-
-// Generate CSS variables for the entire document
-const cssVars = createCSSVariables('light');
-
-// Apply to document root
-Object.entries(cssVars).forEach(([property, value]) => {
-  document.documentElement.style.setProperty(property, value);
-});
-```
-
-## Best Practices
+## Best practices
 
 ### ✅ Do
 
-- **Use tokens for all design values**: Colors, spacing, typography, etc.
-- **Use semantic tokens**: Prefer `colors.brand.primary` over `colors.olive.base`
-- **Be consistent**: Use the same token for similar design elements
-- **Document custom additions**: If you add new tokens, document them
+- Use `--lagom-semantic-*` tokens for all color
+- Use `--lagom-core-*` tokens for spacing, type, radii, and opacity
+- Override `--lagom-component-*` tokens, in `brand.css`, to change one component everywhere it's used
+- Run `yarn check-brand` after editing `brand.css`
 
 ### ❌ Don't
 
-- **Hardcode values**: Avoid `color: '#626E60'`, use `color: colors.brand.primary`
-- **Mix units inconsistently**: Stick to the token spacing system
-- **Override without reason**: Use tokens as the source of truth
-- **Create duplicate tokens**: Check if a token already exists before creating new ones
+- Hardcode colors, spacing, or font stacks — use a token
+- Use a palette color (`--lagom-grey-55`, `--fern-olive-45`) in a component: it won't follow brand, mode, or contrast
+- Read `--lagom-component-*` tokens outside the component they belong to — override the semantic role instead for anything else
 
-## Customizing Tokens
+## Reference
 
-### Extending the Theme
-
-To add custom values while keeping tokens:
-
-```javascript
-// In your component or theme file
-import { colors, spacing } from '../utils/tokens';
-
-const customTheme = {
-  colors: {
-    ...colors,
-    // Add custom colors that complement the token system
-    custom: {
-      gradient: `linear-gradient(45deg, ${colors.brand.primary}, ${colors.honey.base})`
-    }
-  },
-  spacing: {
-    ...spacing,
-    // Add custom spacing that follows the scale
-    custom: '12px' // Between md (8px) and lg (16px)
-  }
-};
-```
-
-### Overriding for Specific Use Cases
-
-```javascript
-// When you need to deviate from tokens (rarely)
-const SpecialComponent = () => (
-  <div style={{
-    // Use token as base
-    backgroundColor: colors.brand.primary,
-    // Override with calculated value when needed
-    opacity: 0.8,
-    // Custom property that doesn't exist in tokens
-    backdropFilter: 'blur(10px)'
-  }}>
-    Special styling
-  </div>
-);
-```
-
-## Token Reference
-
-For a complete list of available tokens, check:
-- `node_modules/@fcongson/lagom-tokens/js/` - All token files
-- `src/utils/tokens.js` - Organized token exports
-- `src/styles/theme.js` - Applied theme configuration
-- `src/styles/` - All styling files and documentation
-
-## Updating Tokens
-
-Tokens are managed in the `@fcongson/lagom-tokens` package. To update:
-
-1. **Update the package**: `npm update @fcongson/lagom-tokens`
-2. **Check for breaking changes**: Review the changelog
-3. **Test your components**: Ensure all designs still look correct
-4. **Update custom themes**: Adjust any custom overrides if needed
+- lagom-ui's **Theming** and **Using Tokens** guides (in its Storybook) for the full token list and theming rules
+- `node_modules/@fcongson/lagom-tokens/css/lagom.css` for every token's resolved value
+- `src/styles/brand.css` for this project's brand overrides (empty by default)
