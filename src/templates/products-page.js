@@ -9,13 +9,12 @@ import {
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import PropTypes from "prop-types";
-import React from "react";
 import { PreviewCompatibleImage } from "../components/PreviewCompatibleImage";
 import { Pricing } from "../components/Pricing";
 import { Testimonials } from "../components/Testimonials";
 import { Layout } from "../components/layout";
+import { Seo } from "../components/Seo";
 
-// eslint-disable-next-line
 export const ProductsPageTemplate = ({
   image,
   title,
@@ -34,6 +33,7 @@ export const ProductsPageTemplate = ({
           <GatsbyImage
             image={image?.childImageSharp?.gatsbyImageData}
             style={{ height: "100%" }}
+            alt=""
           />
         }
       >
@@ -58,6 +58,7 @@ export const ProductsPageTemplate = ({
           <GatsbyImage
             image={main.image3.image.childImageSharp.gatsbyImageData}
             style={{ height: "100%" }}
+            alt=""
           />
         }
         caption="Emphasized image"
@@ -73,6 +74,7 @@ export const ProductsPageTemplate = ({
           <GatsbyImage
             image={fullImage?.childImageSharp?.gatsbyImageData}
             style={{ height: "100%" }}
+            alt=""
           />
         }
         caption="Full width image"
@@ -142,6 +144,8 @@ ProductsPage.propTypes = {
 };
 
 export default ProductsPage;
+
+export const Head = ({ data }) => <Seo title={data.markdownRemark.frontmatter.title} />;
 
 export const ProductsPageQuery = graphql`
   query ProductsPage($id: String!) {

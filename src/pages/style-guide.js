@@ -10,8 +10,8 @@ import {
 } from "@fcongson/lagom-ui";
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import React from "react";
 import { Layout } from "../components/layout";
+import { Seo } from "../components/Seo";
 
 export const query = graphql`
   query {
@@ -265,3 +265,5 @@ export default function StyleGuide({ data }) {
     </Layout>
   );
 }
+
+export const Head = () => <Seo title="Style Guide" />;

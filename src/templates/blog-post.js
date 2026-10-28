@@ -1,26 +1,22 @@
 import { Container, PageHeader, Section } from "@fcongson/lagom-ui";
 import { Link, graphql } from "gatsby";
-import { kebabCase } from "lodash";
 import PropTypes from "prop-types";
-import React from "react";
-import { Helmet } from "react-helmet";
 import { Content, HTMLContent } from "../components/Content";
 import { Layout } from "../components/layout";
+import { Seo } from "../components/Seo";
+import { kebabCase } from "../utils/kebabCase";
 
-// eslint-disable-next-line
 export const BlogPostTemplate = ({
   content,
   contentComponent,
   description,
   tags,
   title,
-  helmet,
 }) => {
   const PostContent = contentComponent || Content;
 
   return (
     <Section>
-      {helmet || ""}
       <Container>
         <PageHeader>{title}</PageHeader>
         <p>{description}</p>
@@ -47,7 +43,7 @@ BlogPostTemplate.propTypes = {
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  helmet: PropTypes.object,
+  tags: PropTypes.arrayOf(PropTypes.string),
 };
 
 const BlogPost = ({ data }) => {
@@ -59,15 +55,6 @@ const BlogPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        helmet={
-          <Helmet titleTemplate="%s | Blog">
-            <title>{`${post.frontmatter.title}`}</title>
-            <meta
-              name="description"
-              content={`${post.frontmatter.description}`}
-            />
-          </Helmet>
-        }
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
       />
@@ -82,6 +69,17 @@ BlogPost.propTypes = {
 };
 
 export default BlogPost;
+
+export const Head = ({ data }) => {
+  const { frontmatter } = data.markdownRemark;
+  return (
+    <Seo
+      title={frontmatter.title}
+      description={frontmatter.description}
+      titleSuffix="Blog"
+    />
+  );
+};
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {

@@ -1,8 +1,7 @@
 import { Container, Section } from "@fcongson/lagom-ui";
 import { Link, graphql } from "gatsby";
-import React from "react";
-import { Helmet } from "react-helmet";
 import { Layout } from "../components/layout";
+import { Seo } from "../components/Seo";
 
 const TagRoute = (props) => {
   const posts = props.data.allMarkdownRemark.edges;
@@ -16,7 +15,6 @@ const TagRoute = (props) => {
   ));
 
   const { tag } = props.pageContext;
-  const { title } = props.data.site.siteMetadata;
   const { totalCount } = props.data.allMarkdownRemark;
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
@@ -24,7 +22,6 @@ const TagRoute = (props) => {
 
   return (
     <Layout>
-      <Helmet title={`${tag} | ${title}`} />
       <Section>
         <Container>
           <h3>{tagHeader}</h3>
@@ -40,13 +37,10 @@ const TagRoute = (props) => {
 
 export default TagRoute;
 
+export const Head = ({ pageContext }) => <Seo title={pageContext.tag} />;
+
 export const tagPageQuery = graphql`
   query TagPage($tag: String) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(
       limit: 1000
       sort: { frontmatter: { date: DESC } }
