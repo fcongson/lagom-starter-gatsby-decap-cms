@@ -16,7 +16,7 @@ public_folder: /images
 display_url: https://your-site.netlify.app
 
 # Logo for CMS admin
-logo_url: https://your-site.netlify.app/images/logo.png
+logo_url: https://your-site.netlify.app/images/logo-light.png
 
 collections:
   # Site Settings

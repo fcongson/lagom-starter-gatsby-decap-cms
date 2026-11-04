@@ -31,11 +31,31 @@ exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
       content:
         "width=device-width,minimum-scale=1.0,initial-scale=1.0,viewport-fit=cover",
     }),
+    // Two favicon variants ship pre-rendered for contrast against each OS
+    // theme (see static/images/favicon-dark.png / favicon-light.png);
+    // browsers that don't support the media attribute on <link rel="icon">
+    // fall back to the first one.
     React.createElement("link", {
       key: "favicon",
       rel: "icon",
       type: "image/png",
-      href: `${withPrefix("/")}images/favicon.png`,
+      href: `${withPrefix("/")}images/favicon-light.png`,
+      sizes: "32x32",
+    }),
+    React.createElement("link", {
+      key: "favicon-light",
+      rel: "icon",
+      type: "image/png",
+      media: "(prefers-color-scheme: light)",
+      href: `${withPrefix("/")}images/favicon-light.png`,
+      sizes: "32x32",
+    }),
+    React.createElement("link", {
+      key: "favicon-dark",
+      rel: "icon",
+      type: "image/png",
+      media: "(prefers-color-scheme: dark)",
+      href: `${withPrefix("/")}images/favicon-dark.png`,
       sizes: "32x32",
     }),
   ]);

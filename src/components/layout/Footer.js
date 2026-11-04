@@ -1,7 +1,8 @@
 import { Link } from "gatsby";
 import { Container, Section } from "@fcongson/lagom-ui";
 import { Icon } from "../Icon";
-import logo from "../../../static/images/logo.png";
+import logoDark from "../../../static/images/logo-dark.png";
+import logoLight from "../../../static/images/logo-light.png";
 
 import "./Footer.css";
 
@@ -11,7 +12,16 @@ export const Footer = () => {
       <Container marginNone>
         <footer className="footer">
           <Link to="/" title="Logo" className="footer__logo">
-            <img src={logo} alt="Lagom" />
+            <img
+              src={logoLight}
+              alt="Lagom"
+              className="footer__logo-image footer__logo-image--light"
+            />
+            <img
+              src={logoDark}
+              alt="Lagom"
+              className="footer__logo-image footer__logo-image--dark"
+            />
           </Link>
           <div className="footer__content">
             <ul className="footer__links">
