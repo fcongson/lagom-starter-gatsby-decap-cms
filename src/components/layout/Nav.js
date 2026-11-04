@@ -2,7 +2,8 @@ import { Container, Section } from "@fcongson/lagom-ui";
 import { Link } from "gatsby";
 import { useState } from "react";
 import { Icon } from "../Icon";
-import logo from "../../../static/images/logo.png";
+import logoDark from "../../../static/images/logo-dark.png";
+import logoLight from "../../../static/images/logo-light.png";
 
 import "./Nav.css";
 
@@ -15,7 +16,16 @@ export const Nav = () => {
         <nav role="navigation" aria-label="main-navigation" className="nav">
           <div className="nav__primary">
             <Link to="/" title="Logo" className="nav__logo">
-              <img src={logo} alt="Lagom" />
+              <img
+                src={logoLight}
+                alt="Lagom"
+                className="nav__logo-image nav__logo-image--light"
+              />
+              <img
+                src={logoDark}
+                alt="Lagom"
+                className="nav__logo-image nav__logo-image--dark"
+              />
             </Link>
             <button
               className={`nav__menu-button ${

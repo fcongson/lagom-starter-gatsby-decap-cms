@@ -23,6 +23,21 @@
   height: 6rem;
 }
 
+/* Two logo variants ship pre-rendered for contrast against each mode
+   (see static/images/logo-dark.png / logo-light.png); only one is ever
+   displayed, so this doesn't duplicate alt text for assistive tech. */
+.nav__logo-image--dark {
+  display: none;
+}
+
+[data-lagom-theme="dark"] .nav__logo-image--light {
+  display: none;
+}
+
+[data-lagom-theme="dark"] .nav__logo-image--dark {
+  display: inline-block;
+}
+
 .nav__menu-button {
   appearance: none;
   background: none;
