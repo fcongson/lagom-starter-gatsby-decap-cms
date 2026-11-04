@@ -16,18 +16,20 @@
   height: 8rem;
 }
 
-/* Two logo variants ship pre-rendered for contrast against each mode
-   (see static/images/logo-dark.png / logo-light.png); only one is ever
-   displayed, so this doesn't duplicate alt text for assistive tech. */
-.footer__logo-image--dark {
-  display: none;
-}
-
-[data-lagom-theme="dark"] .footer__logo-image--light {
+/* Two logo variants ship pre-rendered for contrast against the page
+   background: the dark-background mark in light mode, the
+   light-background one in dark mode (see static/images/logo-dark.png /
+   logo-light.png). Only one is ever displayed, so this doesn't
+   duplicate alt text for assistive tech. */
+.footer__logo-image--light {
   display: none;
 }
 
 [data-lagom-theme="dark"] .footer__logo-image--dark {
+  display: none;
+}
+
+[data-lagom-theme="dark"] .footer__logo-image--light {
   display: inline-block;
 }
 
